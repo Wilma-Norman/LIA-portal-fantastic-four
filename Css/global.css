@@ -1,23 +1,16 @@
 :root {
     --primary: #251D63;
-    --primay-lighter: #3D376B;
+    --primary-lighter: #3D376B;
     --primary-light: #7E78AA;
     --off-white: #ECECEC;
     --white: #FBFBFB;
     --black: #080910;
+    --background-gradient: linear-gradient(45deg, rgba(126,120,170,1) 0%, rgba(37,29,99,1) 100%);
 }
+
 
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-}
-
-.light-divider {
-    width: 80%;
-    height: 3px;
-    border: 1px solid var(--off-white);
-    background-color: var(--off-white);
-    border-radius: 2px;
-    margin: 16px;
 }

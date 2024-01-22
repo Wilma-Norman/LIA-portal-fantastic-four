@@ -3,24 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>LIA Portal</title>
     <link rel="stylesheet" href="Css/index.css">
     <link rel="stylesheet" href="Css/global.css">
-    <script src="JS/index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script><!-- i dont know if this should be here or in a common place-->
+    <script src="JS/index.js" defer></script>
+    <script src="JS/data.js" defer></script>
 </head>
 <body>
     <div class="main">
         <div class="main-container">
-            <section class="text-container">
-                <p>Click on the Buttons to enter the view you want.</p>
-            </section>
-            <div class="light-divider"></div>
-            <section class="button-container">
-                <button>Student</button>
-                <button>Company</button>
-            </section>
+            <div class="">
+                <p>Lia Portal</p><!-- this need to be bigger-->
+            </div>
+           <div class="">
+                <p>Click on either button to view...</p><!--This text is not final, input needed-->
+            </div>
+           <div class="button-container">
+                <p class="button-container-text">Student view</p>
+                <button href="html/student-main-page.html" class="landing-page-button" id="student-button">Clicky</button><!-- text on the button is not final-->
+           </div>
+           <div class="">
+                <p>Or</p>
+           </div>
+           <div class="button-container">
+                <button href="html/company-main-page.html" class="landing-page-button" id="company-button">Clicky</button><!-- text on the button is not final-->
+                <p class="button-container-text">Company view</p>
+           </div>
         </div>  
     </div>
-    <footer></footer>
+    <footer></footer> <!--just a placeholder, replace with the finished product-->
 </body>
 </html>
