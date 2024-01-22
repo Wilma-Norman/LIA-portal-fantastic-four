@@ -4,7 +4,7 @@
     align-items: center;
     height: 100dvh;
     width: 100%;
-    background-color: #251D63;
+    background-color: var(--primary);
 }
 
 .main-container {
@@ -12,16 +12,39 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 60%;
-    height: 60%;
-    background-color: whitesmoke;
-    border-radius: 16px;
+    width: 100%;
+    height: 100%;
 }
 
 .text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: auto;
+}
 
+.text-container p {
+    text-align: center;
 }
 
 .button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
 
 }
+
+.button-container button {
+    
+}
+
+@media only screen and (min-width: 900px) {
+    .main {
+        background-color: red;
+    }
+}   
