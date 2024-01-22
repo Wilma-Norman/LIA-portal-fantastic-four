@@ -1,0 +1,14 @@
+:root {
+    --primary: #251D63;
+    --primay-lighter: #3D376B;
+    --primary-light: #7E78AA;
+    --off-white: #ECECEC;
+    --white: #FBFBFB;
+    --black: #080910;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}

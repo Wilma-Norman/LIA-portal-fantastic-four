@@ -4,7 +4,7 @@
     align-items: center;
     height: 100dvh;
     width: 100%;
-    background-color: lightblue;
+    background-color: #251D63;
 }
 
 .main-container {
@@ -14,7 +14,7 @@
     align-items: center;
     width: 60%;
     height: 60%;
-    background-color: lightgray;
+    background-color: whitesmoke;
     border-radius: 16px;
 }
 
