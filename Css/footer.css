@@ -16,7 +16,7 @@ footer {
   justify-content: space-between;
   align-items: center;
   width: 50%;
-  height: 175px;
+  height: 110px;
 }
 .footer-right-content {
   border-left: 3px solid #fff;
@@ -25,25 +25,26 @@ footer {
   text-align: center;
 }
 .footer-logo-img {
-  width: 120px;
+  width: 70px;
   margin-bottom: 20px;
   filter: drop-shadow(0 0 0.75rem rebeccapurple);
 }
 .footer-switch-portal-link {
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
+  width: 100%;
 }
 .footer-go-company,
 .footer-go-student {
   text-decoration: none;
+  font-size: 0.8rem;
   padding: 8px 12px;
   border: 1px solid rebeccapurple;
   color: #251d63;
   border-radius: 6px;
-  margin-bottom: 24px;
-  width: 160px;
+  /* margin-bottom: 24px; */
+  width: 130px;
   text-align: center;
 }
 .footer-go-company:hover,
@@ -57,7 +58,7 @@ footer {
 } */
 .footer-social-media-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   width: 100%;
 }
