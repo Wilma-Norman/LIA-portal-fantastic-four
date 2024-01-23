@@ -32,7 +32,7 @@
     <!-- Chat area start -->
     <h2 class="chat-title">Chats</h2>
     <main class="chat-main-container">
-      <section class="chat-sidebad">
+      <section class="chat-sidebar">
         <h3>My Chat List</h3>
         <input class="search-chat-input" type="text" placeholder="🔍 Search.." />
 
@@ -46,6 +46,30 @@
           </div>
         </div>
       </section>
+      <div class="modal-container">
+        <div class="icon">
+          <div class="icon-bar one"></div>
+          <div class="icon-bar two"></div>
+          <div class="icon-bar three"></div>
+        </div>
+        <div class="modal none-dis" id="myModal">
+          <!-- Modal Content Goes Here -->
+          <section class="chat-sidebar-hamburger">
+            <!-- <h3>My Chat List</h3> -->
+            <input class="search-chat-input" type="text" placeholder="🔍 Search.." />
+
+            <div class="chat-list-container">
+              <img class="chat-friend-img" src="../Image/lia.png" alt="" />
+              <div class="friend-info">
+                <p class="name">Luise</p>
+                <p class="last-message">
+                  <span class="message">Hello</span> <span class="date">20.34</span>
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
       <section class="chat-main-content">
         <div class="active-person-info">
           <div class="active-left-area">
@@ -125,5 +149,6 @@
       </div>
     </footer>
     <!-- Footer area end -->
+    <script src="../JS/student-chat.js"></script>
   </body>
 </html>

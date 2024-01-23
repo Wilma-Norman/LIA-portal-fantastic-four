@@ -77,3 +77,30 @@ footer {
 .copyright {
   margin-bottom: 0 !important;
 }
+
+@media screen and (max-width: 786px) {
+  .footer-container {
+    flex-direction: column-reverse;
+  }
+  .footer-left-content,
+  .footer-right-content {
+    width: 100%;
+  }
+  .footer-right-content {
+    height: 86px;
+    border: none;
+    border-bottom: 2px solid var(--primary-light);
+    padding-bottom: 10px;
+  }
+  .footer-left-content {
+    height: 66px;
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+    flex-direction: row;
+  }
+  .footer-logo-img {
+    width: 50px;
+    margin-bottom: 0;
+  }
+}
