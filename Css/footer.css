@@ -1,6 +1,6 @@
 footer {
   margin-top: auto;
-  background-color: #be95c4;
+  background-color: var(--primary-light);
   padding: 20px;
   color: #fff;
 }
@@ -43,6 +43,7 @@ footer {
   color: #fff;
   border-radius: 6px;
   margin-bottom: 24px;
+  width: 160px;
 }
 .footer-go-company:hover,
 .footer-go-student:hover {
