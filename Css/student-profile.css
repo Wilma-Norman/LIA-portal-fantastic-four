@@ -1,0 +1,166 @@
+body {
+    width: 100%;
+    min-height: 100dvh;
+    background: var(--background-gradient);
+}
+
+.flex-column-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-main-content {
+    padding: 8px;
+}
+
+.profile-main-content > div {
+    width: 100%;
+    padding: 12px;
+}
+
+.profile-main-content > div:not(:first-child) {
+    margin-top: 2%;
+    color: var(--white);
+}
+
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 250px;
+    gap: 8px;
+    z-index: 10;
+    margin-top: 0;
+    border-radius: 15px;
+    background-color: var(--off-white);
+    color: var(--primary-light);
+    overflow: hidden;
+}
+
+.profile-buttons {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    padding: 8px 12px;
+    color: var(--primary);
+    height: 30px;
+}
+
+.profile-summary {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+    z-index: 30;
+    gap: 8px;
+    color: var(--primary);
+}
+
+.profile-summary img {
+    height: 92px;
+    width: 92px;
+}
+
+.profile-summary img:hover {
+    cursor: pointer;
+}
+
+.profile-bio {
+    position: relative;
+    width: 100%;
+    height: 50%;
+}
+
+.link-container {
+    border-radius: 15px;
+    background-color: var(--primary-light);
+    border: 1px solid var(--white);
+}
+
+.container-text {
+    padding: 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  temp css below */
+
+.title {
+    font-size: 20px;
+}
+
+header {
+    display: flex;
+    width: 100%;
+    height: 10vh;
+    background-color: lightblue;
+    top: 0; 
+}
+
+.main-navigations {
+    display: flex;   
+}
+
+.foot {
+    width: 100%;
+    min-height: 10vh;
+    background-color: lightblue;
+    position: absolute;
+    bottom: 0;
+}
+
+.temp-icon {
+    background-color: lightblue;
+    border-radius: 8px;
+    height: 16px;
+    width: 16px;
+    border: 1px solid black;
+}
+
+.temp-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.fake-link {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: var(--primary);
+    text-decoration: underline;
+}
