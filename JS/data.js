@@ -1,3 +1,5 @@
+let studentIdCounter = 1;
+
 function Student(
     name,
     age,
@@ -8,6 +10,7 @@ function Student(
     remote,
     mentor,
   ) {
+    this.id = studentIdCounter++;
     this.name = name;
     this.age = age;
     this.contact = contact;
@@ -156,3 +159,9 @@ const studentTen = new Student(
     "Yes",
     false
 );
+
+const students = [];
+
+students.push(studentOne, studentTwo, studentThree, studentFour, studentFive, studentSix, studentSeven, studentEight, studentNine, studentTen);
+
+console.log(students);
