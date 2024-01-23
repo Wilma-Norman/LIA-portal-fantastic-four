@@ -43,7 +43,6 @@ footer {
   border: 1px solid rebeccapurple;
   color: #251d63;
   border-radius: 6px;
-  /* margin-bottom: 24px; */
   width: 130px;
   text-align: center;
 }
@@ -52,10 +51,6 @@ footer {
   background-color: #251d63;
   color: #fff;
 }
-/* .footer-container > div {
-  margin-bottom: 20px;
-
-} */
 .footer-social-media-container {
   display: flex;
   justify-content: center;
@@ -63,17 +58,16 @@ footer {
   width: 100%;
 }
 .footer-social-media-link {
-  font-size: 1.3rem;
   font-weight: 600;
   margin: 3px 40px;
   text-decoration: none;
   color: #251d63;
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   border: 2px solid #251d63;
   border-radius: 50%;
   text-align: center;
-  line-height: 39px;
+  line-height: 31px;
 }
 .footer-social-media-link:hover {
   background-color: #fff;
