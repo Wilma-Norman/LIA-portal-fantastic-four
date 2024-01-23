@@ -11,15 +11,15 @@ body {
 }
 
 .profile-main-content {
+    min-height: 85vh;
+    position: relative;
+}
+
+.profile-wrapper {
     padding: 8px;
 }
 
-.profile-main-content > div {
-    width: 100%;
-    padding: 12px;
-}
-
-.profile-main-content > div:not(:first-child) {
+.profile-card-wrapper > div:not(:first-child) {
     margin-top: 2%;
     color: var(--white);
 }
@@ -29,26 +29,13 @@ body {
     flex-direction: column;
     position: relative;
     min-height: 250px;
+    width: 100%;
+    padding: 12px;
     gap: 8px;
-    z-index: 10;
     margin-top: 0;
     border-radius: 15px;
     background-color: var(--off-white);
     color: var(--primary-light);
-    overflow: hidden;
-}
-
-.profile-buttons {
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 20;
-    padding: 8px 12px;
-    color: var(--primary);
-    height: 30px;
 }
 
 .profile-summary {
@@ -76,48 +63,54 @@ body {
     position: relative;
     width: 100%;
     height: 50%;
+    color: var(--primary-light);
 }
 
 .link-container {
+    width: 100%;
+    padding: 12px;
     border-radius: 15px;
     background-color: var(--primary-light);
     border: 1px solid var(--white);
 }
 
+.link-container > div:not(:first-child) {
+    padding-top: 8px;
+}
+
 .container-text {
+    width: 100%;
     padding: 0px;
 }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*  temp css below */
+
+.left {
+    position: absolute;
+    top: 20px;
+    left: 16px;
+}
+
+.right {
+    position: absolute;
+    top: 20px;
+    right: 16px;
+}
+
+.temp-button {
+    height: 25px;
+    padding: 4px;
+    z-index: 40;
+    border-radius: 6px;
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.temp-button:hover {
+    cursor: pointer;
+}
 
 .title {
     font-size: 20px;
@@ -137,7 +130,7 @@ header {
 
 .foot {
     width: 100%;
-    min-height: 10vh;
+    min-height: 5vh;
     background-color: lightblue;
     position: absolute;
     bottom: 0;
@@ -163,4 +156,57 @@ header {
     right: 0;
     color: var(--primary);
     text-decoration: underline;
+    
+}
+
+/* End off temporary css */
+
+@media only screen and (min-width: 900px) {
+
+    .profile-main-content{
+        justify-content: center;
+    }
+
+    .profile-wrapper {
+        display: flex;
+        position: relative;
+        width: 80%;
+        height: 80%;
+        background-color: var(--off-white);
+        border-radius: 20px;
+    }
+
+    .bob {
+        display: flex;
+        flex-grow: 1;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .rob {
+        height: 90%;
+        width: 3px;
+        border: 2px solid var(--primary);
+        border-radius: 2px;
+    }
+
+    .profile-card-wrapper {
+        width: 45%;
+        height: 100%;
+    }
+    
+    .profile-card {
+        background-color: var(--white);
+    }
+
+    .container-text {
+        width: 45%;
+        height: 100%;
+        padding: 12px;
+    }
+
+    .container-text > * {
+        padding: 8px;
+    }
+    
 }
