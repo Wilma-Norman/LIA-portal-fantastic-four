@@ -1,11 +1,14 @@
 let studentIdCounter = 1;
 
+<<<<<<< HEAD
 function findFriends(student, allStudents) {
   return allStudents.filter(
     (otherStudent) => otherStudent.school === student.school && otherStudent.id !== student.id
   );
 }
 
+=======
+>>>>>>> 242979f (made a push to all students)
 class Contact {
   constructor(email, phone, linkedIn) {
     this.email = email;
@@ -235,9 +238,7 @@ const contacts = [
   contactTen,
 ];
 
-students.forEach((student) => {
-  student.friends = findFriends(student, students);
-});
+students.push(studentOne, studentTwo, studentThree, studentFour, studentFive, studentSix, studentSeven, studentEight, studentNine, studentTen);
 
 console.log(
   students.map((student) => ({
