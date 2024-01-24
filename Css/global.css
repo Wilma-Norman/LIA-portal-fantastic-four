@@ -17,12 +17,47 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 html {
   min-height: 100vh;
 }
+
 body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   background-color: var(--primary);
+}
+
+.main-header {
+  padding: 10x;
+  margin: 10px;
+  color: var(--primary);
+}
+
+.main-navigations {
+  list-style: none;
+  display: flex;
+  margin: 16px; 
+}
+
+.nav-link {
+  font-size: 1.2rem;
+  padding: 16px;
+  margin: 16px;
+  text-decoration: none;
+  color: var(--primary)
+}
+
+.nav-link:hover {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+.wraper {
+  display: flex;
+  justify-content:space-between;
+  margin: 0px;
+  padding: 16px;
+  background-color: var(--primary-light);
 }
