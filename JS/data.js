@@ -6,6 +6,7 @@ class Contact {
     this.phone = phone;
     this.linkedIn = linkedIn;
 }
+}
 
 class Student {
   constructor(
