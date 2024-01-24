@@ -24,7 +24,7 @@ const createProfileElement = (profileId) => {
                 </div>
                 <div class="profile-bio">
                     <p class="title">Background</p>
-                    <p>Right now the fake link is absolutely positioned in the bottom right but i think a grid might work aswell, just put the link in the bottom right grid area and the rest can be text. sapnfdsapojfdspofjsapdojfapsdjfapso asdpoifjasdofuh asodhf apsdf adf asdf apsdfpashdf asfsadf </p>
+                    
                     <div class="fake-link">fake link</div>
                 </div>
                 </div>
@@ -81,7 +81,6 @@ function getQueryParam(param) {
     return urlParams.get(param);
 }
 
-console.log(getQueryParam('id'))
 createProfileElement(getQueryParam('id'));
 
 $("#settings-button").click(() => {
