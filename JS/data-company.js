@@ -1,5 +1,12 @@
 let companyIdCounter = 1;
 
+function findContacts(company, allCompanies) {
+    return allCompanies
+        .filter(otherCompany => otherCompany.workplace === company.workplace && otherCompany.id !== company.id)
+        .map(otherCompany => otherCompany.contact);
+}
+
+
 function Contact(email, phone, linkedIn) {
     this.email = email;
     this.phone = phone;
@@ -8,6 +15,7 @@ function Contact(email, phone, linkedIn) {
 
 function Company(
     name,
+    surname,
     contact,
     workplace,
     skills,
@@ -19,6 +27,7 @@ function Company(
 ) {
     this.id = companyIdCounter++;
     this.name = name;
+    this.surname = surname;
     this.contact = contact;
     this.workplace = workplace;
     this.skills = skills;
@@ -42,7 +51,8 @@ function Company(
   
    // Company one
     const companyOne = new Company(
-    "Carin Carinsson",
+    "Carin",
+    "Carinsson",
     contactOne,
     "App Power",
     ["HTML", "CSS", "JavaScript"],
@@ -55,7 +65,8 @@ function Company(
   // Company two
 
     const companyTwo = new Company(
-    "Isabel Isabelsson",
+    "Isabel",
+    "Isabelsson",
     contactTwo,
     "Coding Fun AB",
     ["Angular", "Next.js", "Python"],
@@ -70,7 +81,8 @@ function Company(
   // Company three
 
   const companyThree = new Company(
-    "Elisabeth Elisabethsson",
+    "Elisabeth",
+    "Elisabethsson",
     contactThree,
     "FullStack AB",
     ["Json","Vite","Angular", "JavaScript", "Python"],
@@ -85,7 +97,8 @@ function Company(
   // Company four
 
   const companyFour = new Company(
-    "Darin Darinsson",
+    "Darin",
+    "Darinsson",
     contactFour,
     "BackEnd Rules",
     ["CSS","HTML","GIT","problem solving"],
@@ -100,7 +113,8 @@ function Company(
 // Company five
 
 const companyFive = new Company(
-    "Saga Sagasson",
+    "Saga",
+    "Sagasson",
     contactFive,
     "NodeCode AB",
     ["MongoDB","ExpressJS","NodeJS","ReactJS"],
@@ -115,7 +129,8 @@ const companyFive = new Company(
 // Company six
 
 const companySix = new Company(
-    "Otto Ottosson",
+    "Otto",
+    "Ottosson",
     contactSix,
     "BackEndToWin AB",
     ["Java","Python","JavaScript","C#"],
@@ -130,7 +145,8 @@ const companySix = new Company(
 // Company seven
 
 const companySeven = new Company(
-    "Berit Beritsson",
+    "Berit",
+    "Beritsson",
     contactSeven,
     "FrontForward Coding",
     ["JavaScript","TypeScript","jQuery","React"],
@@ -145,7 +161,8 @@ const companySeven = new Company(
 // Company eight
 
 const companyEight = new Company(
-    "Philip Philipsson",
+    "Philip",
+    "Philipsson",
     contactEight,
     "GoCoding",
     ["MongoDB","NodeJS","ReactJS"],
@@ -159,7 +176,8 @@ const companyEight = new Company(
 // Company nine
 
 const companyNine = new Company(
-    "Kikki Kikkisson",
+    "Kikki",
+    "Kikkisson",
     contactNine,
     "GitGood",
     ["Python", "C++","Swift","Kotlin","Mojo"],
@@ -173,7 +191,8 @@ const companyNine = new Company(
 // Company ten
 
 const companyTen = new Company(
-    "Arnold Arnoldsson",
+    "Arnold",
+    "Arnoldsson",
     contactTen,
     "HappyCoding AB",
     ["Python", "C++","Swift","Kotlin","Mojo"],
@@ -187,7 +206,20 @@ const companyTen = new Company(
 
 const companies = [];
 
+function findContacts(company, allCompanies) {
+    return allCompanies
+        .filter(otherCompany => otherCompany.workplace === company.workplace && otherCompany.id !== company.id)
+        .map(otherCompany => otherCompany.contact);
+}
+
+
 companies.push(companyOne, companyTwo, companyThree, companyFour, companyFive, companySix, companySeven, companyEight, companyNine, companyTen);
 companies.push(contactOne, contactTwo, contactThree, contactFour, contactFive, contactSix, contactSeven, contactEight, contactNine, contactTen);
 
-console.log(companies);
+console.log(companies.map(company => ({
+    name: company.name,
+    surname: company.surname,
+    workplace: company.workplace,
+    contacts: company.contacts.map(contact => contact.email),
+})));
+
