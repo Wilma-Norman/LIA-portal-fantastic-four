@@ -14,6 +14,7 @@ function toggleMenu() {
   var icon = document.querySelector(".icon");
   icon.classList.toggle("menu-open");
 }
+/* Hamburder menu END */
 
 /* Hamburder menu END */
 
