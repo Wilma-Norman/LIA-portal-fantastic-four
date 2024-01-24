@@ -24,7 +24,7 @@ const createProfileElement = (profileId) => {
                 </div>
                 <div class="profile-bio">
                     <p class="title">Background</p>
-                    
+                    <p>Right now the fake link is absolutely positioned in the bottom right but i think a grid might work aswell, just put the link in the bottom right grid area and the rest can be text.</p>
                     <div class="fake-link">fake link</div>
                 </div>
                 </div>
