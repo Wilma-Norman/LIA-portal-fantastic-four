@@ -23,4 +23,6 @@ console.log(students);
 //Dom elements
 const chatListContainer = document.querySelector(".chat-list-container");
 
+const renderFriendsChatList = () => {};
+
 /* Render dynamic friends list to sidebar of student chat page  END*/
