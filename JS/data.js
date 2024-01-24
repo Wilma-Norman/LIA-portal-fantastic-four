@@ -39,35 +39,6 @@ class Student {
   }
 }
 
-function Student(
-  name,
-  surname,
-  age,
-  school,
-  contact,
-  education,
-  skills,
-  location,
-  remote,
-  mentor,
-  isActive
-) {
-  this.id = studentIdCounter++;
-  this.name = name;
-  this.surname = surname;
-  this.school = school;
-  this.age = age;
-  this.contact = contact;
-  this.education = education;
-  this.skills = skills;
-  this.location = location;
-  this.remote = remote;
-  this.mentor = mentor;
-  this.friends = [];
-  this.chatHistory = {};
-  this.isActive = isActive === true;
-}
-
 const contactOne = new Contact("louise.app@mail.com", "123-456-789", "louise.app.linkedIn.com");
 const contactTwo = new Contact("Bob.builder@mail.com", "987-654-321", "Bob.builder.linkedIn.com");
 const contactThree = new Contact("anna.panna@mail.com", "456-789-012", "anna.panna.linkedIn.com");
@@ -134,7 +105,7 @@ const studentThree = new Student(
   false
 );
 
-// Student three
+// Student two
 
 const studentFour = new Student(
   "Eric",
