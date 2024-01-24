@@ -1,12 +1,5 @@
 let studentIdCounter = 1;
 
-function findFriends(student, allStudents) {
-  return allStudents.filter(
-    otherStudent =>
-      otherStudent.school === student.school && otherStudent.id !== student.id
-  );
-}
-
 class Contact {
   constructor(email, phone, linkedIn) {
     this.email = email;
@@ -221,8 +214,6 @@ const studentTen = new Student(
 const students = [];
 const contacts = [contactOne, contactTwo, contactThree, contactFour, contactFive, contactSix, contactSeven, contactEight, contactNine, contactTen];
 
-students.forEach(student => {
-  student.friends = findFriends(student, students);
-});
+students.push(studentOne, studentTwo, studentThree, studentFour, studentFive, studentSix, studentSeven, studentEight, studentNine, studentTen);
 
 console.log(students.map(student => ({ name: student.name, surname: student.surname, school: student.school, friends: student.friends.map(friend => friend.name) })));
