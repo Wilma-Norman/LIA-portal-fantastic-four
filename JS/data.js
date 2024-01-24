@@ -1,19 +1,41 @@
 let studentIdCounter = 1;
 
-<<<<<<< HEAD
-function findFriends(student, allStudents) {
-  return allStudents.filter(
-    (otherStudent) => otherStudent.school === student.school && otherStudent.id !== student.id
-  );
-}
-
-=======
->>>>>>> 242979f (made a push to all students)
 class Contact {
   constructor(email, phone, linkedIn) {
     this.email = email;
     this.phone = phone;
     this.linkedIn = linkedIn;
+  }
+}
+
+class Student {
+  constructor(
+    name,
+    surname,
+    age,
+    school,
+    contact,
+    education,
+    skills,
+    location,
+    remote,
+    mentor,
+    isActive
+  ) {
+    this.id = studentIdCounter++;
+    this.name = name;
+    this.surname = surname;
+    this.school = school;
+    this.age = age;
+    this.contact = contact;
+    this.education = education;
+    this.skills = skills;
+    this.location = location;
+    this.remote = remote;
+    this.mentor = mentor;
+    this.friends = [];
+    this.chatHistory = {};
+    this.isActive = isActive === true;
   }
 }
 
@@ -238,7 +260,18 @@ const contacts = [
   contactTen,
 ];
 
-students.push(studentOne, studentTwo, studentThree, studentFour, studentFive, studentSix, studentSeven, studentEight, studentNine, studentTen);
+students.push(
+  studentOne,
+  studentTwo,
+  studentThree,
+  studentFour,
+  studentFive,
+  studentSix,
+  studentSeven,
+  studentEight,
+  studentNine,
+  studentTen
+);
 
 console.log(
   students.map((student) => ({
