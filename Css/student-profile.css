@@ -64,6 +64,9 @@ body {
     width: 100%;
     height: 50%;
     color: var(--primary-light);
+    overflow: hidden;
+    /* white-space: nowrap; */
+    text-overflow: ellipsis;
 }
 
 .link-container {
@@ -87,45 +90,31 @@ body {
 
 /*  temp css below */
 
-.left {
+.utility-button-left {
     position: absolute;
     top: 20px;
     left: 16px;
 }
 
-.right {
+.utility-button-right {
     position: absolute;
     top: 20px;
     right: 16px;
 }
 
-.temp-button {
+.utility-button {
     height: 25px;
     padding: 4px;
     z-index: 40;
-    border-radius: 6px;
-    background-color: var(--primary);
-    color: var(--white);
+    color: var(--primary);
 }
 
-.temp-button:hover {
+.utility-button:hover {
     cursor: pointer;
 }
 
-.title {
+.title { /* this might need to be globalised */
     font-size: 20px;
-}
-
-.main-navigations {
-    display: flex;   
-}
-
-.foot {
-    width: 100%;
-    min-height: 5vh;
-    background-color: lightblue;
-    position: absolute;
-    bottom: 0;
 }
 
 .temp-icon {
@@ -167,6 +156,10 @@ body {
         min-height: 60vh;
         background-color: var(--off-white);
         border-radius: 20px;
+    }
+
+    .left {
+        color: var(--white);
     }
 
     .bob {
