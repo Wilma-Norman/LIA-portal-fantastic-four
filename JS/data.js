@@ -1,28 +1,34 @@
 let studentIdCounter = 1;
-let contactIdCounter = 1;
+
+function findFriends(student, allStudents) {
+  return allStudents.filter(otherStudent => otherStudent.school === student.school && otherStudent.id !== student.id);
+}
 
 function Contact(email, phone, linkedIn) {
-    this.id = contactIdCounter++;
     this.email = email;
     this.phone = phone;
     this.linkedIn = linkedIn;
 }
 
 function Student(
-    name,
-    age,
-    contact,
-    education,
-    skills,
-    location,
-    remote,
-    mentor,
-    isActive 
-) {
+  name,
+  surname, // Add this line
+  age,
+  school, // Add this line
+  contact,
+  education,
+  skills,
+  location,
+  remote,
+  mentor,
+  isActive
+)
+ {
     this.id = studentIdCounter++;
     this.name = name;
+    this.surname = surname;
+    this.school = school;
     this.age = age;
-    this.contact = contact;
     this.education = education;
     this.skills = skills;
     this.location = location;
@@ -30,7 +36,7 @@ function Student(
     this.mentor = mentor;
     this.friends = [];
     this.chatHistory = {};
-    this.isActive = isActive; 
+    this.isActive = isActive === true; 
 }
 
 
@@ -45,10 +51,13 @@ function Student(
    const contactNine = new Contact("carlos.carlotoni@mail.com", "071-229-165", "carlos.carlotoni.linkedIn.com");
    const contactTen = new Contact("emma.femma@mail.com", "096-869-132", "emma.femma.linkedIn.com");
 
-  // Student one
+
+   // Student one
    const studentOne = new Student(
-    "Louise Appelsson",
+    "Louise",
+    "Appelsson",
     "22",
+    "Code School",
     contactOne,
     "FrontEnd App Developer",
     ["HTML", "CSS", "JavaScript"],
@@ -56,13 +65,15 @@ function Student(
     "Yes",
     "Yes",
     false
-   );
+);
 
   // Student two
 
   const studentTwo = new Student(
-    "Bob Builder",
+    "Bob",
+    "Builder",
     "27",
+    "Code Academy School",
     contactTwo,
     "FullStack Developer",
     ["Angular", "Next.js", "Python"],
@@ -75,8 +86,10 @@ function Student(
   // Student three
 
   const studentThree = new Student(
-    "Anna Pannasson",
+    "Anna",
+    "Pannasson",
     "34",
+    "Happy Coding School",
     contactThree,
     "FullStack Developer",
     ["Json","Vite","Angular", "JavaScript", "Python"],
@@ -89,8 +102,10 @@ function Student(
   // Student four
 
   const studentFour = new Student(
-    "Eric Jerkan",
+    "Eric",
+    "Jerkan",
     "20",
+    "Get Coding School",
     contactFour,
     "Frontend Web Developer",
     ["CSS","HTML","GIT","problem solving"],
@@ -103,8 +118,10 @@ function Student(
 // Student five
 
 const studentFive = new Student(
-    "Rob Robsson",
+    "Rob",
+    "Robsson",
     "33",
+    "Coding4All School",
     contactFive,
     "Mern Developer",
     ["MongoDB","ExpressJS","NodeJS","ReactJS"],
@@ -117,8 +134,10 @@ const studentFive = new Student(
 // Student six
 
 const studentSix = new Student(
-    "Otto Risotto",
+    "Otto",
+    "Risotto",
     "25",
+    "ChangeMaker School",
     contactSix,
     "BackEnd Developer",
     ["Java","Python","JavaScript","C#"],
@@ -131,8 +150,10 @@ const studentSix = new Student(
 // Student seven
 
 const studentSeven = new Student(
-    "Britta Karlsson",
+    "Britta",
+    "Karlsson",
     "19",
+    "Coding For Gamers School",
     contactSeven,
     "FrontEnd Developer",
     ["JavaScript","TypeScript","jQuery","React"],
@@ -145,8 +166,10 @@ const studentSeven = new Student(
 // Student eight
 
 const studentEight = new Student(
-    "Patrik Star",
+    "Patrik",
+    "Star",
     "41",
+    "ChangeMaker School",
     contactEight,
     "Mern Developer",
     ["MongoDB","NodeJS","ReactJS"],
@@ -159,8 +182,10 @@ const studentEight = new Student(
 // Student nine
 
 const studentNine = new Student(
-    "Carlos Carlosson",
+    "Carlos",
+    "Carlosson",
     "23",
+    "Happy Coding School",
     contactNine,
     "Senior AI Developer",
     ["Python", "C++","Swift","Kotlin","Mojo"],
@@ -173,8 +198,10 @@ const studentNine = new Student(
 // Student ten
 
 const studentTen = new Student(
-    "Emma Femmasson",
+    "Emma",
+    "Femmasson",
     "27",
+    "Code cademy School",
     contactTen,
     "Junior AI Developer",
     ["Python", "C++","Swift","Kotlin","Mojo"],
@@ -187,7 +214,11 @@ const studentTen = new Student(
 const students = [];
 const contacts = [contactOne, contactTwo, contactThree, contactFour, contactFive, contactSix, contactSeven, contactEight, contactNine, contactTen];
 
+students.forEach(student => {
+  student.friends = findFriends(student, students);
+});
+
 students.push(studentOne, studentTwo, studentThree, studentFour, studentFive, studentSix, studentSeven, studentEight, studentNine, studentTen);
 
 
-console.log(students);
+console.log(students.map(student => ({ name: student.name, surname: student.surname, school: student.school, friends: student.friends.map(friend => friend.name) })));
