@@ -1,34 +1,40 @@
 let studentIdCounter = 1;
 
 function findFriends(student, allStudents) {
-  return allStudents.filter(otherStudent => otherStudent.school === student.school && otherStudent.id !== student.id);
+  return allStudents.filter(
+    otherStudent =>
+      otherStudent.school === student.school && otherStudent.id !== student.id
+  );
 }
 
-function Contact(email, phone, linkedIn) {
+class Contact {
+  constructor(email, phone, linkedIn) {
     this.email = email;
     this.phone = phone;
     this.linkedIn = linkedIn;
+  }
 }
 
-function Student(
-  name,
-  surname, 
-  age,
-  school, 
-  contact,
-  education,
-  skills,
-  location,
-  remote,
-  mentor,
-  isActive
-)
- {
+class Student {
+  constructor(
+    name,
+    surname,
+    age,
+    school,
+    contact,
+    education,
+    skills,
+    location,
+    remote,
+    mentor,
+    isActive
+  ) {
     this.id = studentIdCounter++;
     this.name = name;
     this.surname = surname;
     this.school = school;
     this.age = age;
+    this.contact = contact;
     this.education = education;
     this.skills = skills;
     this.location = location;
@@ -36,9 +42,9 @@ function Student(
     this.mentor = mentor;
     this.friends = [];
     this.chatHistory = {};
-    this.isActive = isActive === true; 
+    this.isActive = isActive === true;
+  }
 }
-
 
    const contactOne = new Contact("louise.app@mail.com", "123-456-789", "louise.app.linkedIn.com");
    const contactTwo = new Contact("Bob.builder@mail.com", "987-654-321", "Bob.builder.linkedIn.com");
@@ -81,9 +87,10 @@ function Student(
     "Yes",
     "No",
     false
-);
+  );
 
-  // Student three
+
+// Student two
 
   const studentThree = new Student(
     "Anna",
@@ -99,7 +106,7 @@ function Student(
     false
 );
 
-  // Student four
+// Student three
 
   const studentFour = new Student(
     "Eric",
@@ -217,8 +224,5 @@ const contacts = [contactOne, contactTwo, contactThree, contactFour, contactFive
 students.forEach(student => {
   student.friends = findFriends(student, students);
 });
-
-students.push(studentOne, studentTwo, studentThree, studentFour, studentFive, studentSix, studentSeven, studentEight, studentNine, studentTen);
-
 
 console.log(students.map(student => ({ name: student.name, surname: student.surname, school: student.school, friends: student.friends.map(friend => friend.name) })));
