@@ -14,6 +14,7 @@ function toggleMenu() {
   var icon = document.querySelector(".icon");
   icon.classList.toggle("menu-open");
 }
+
 /* Hamburder menu END */
 
 /* Render dynamic friends list to sidebar of student chat page  START*/
