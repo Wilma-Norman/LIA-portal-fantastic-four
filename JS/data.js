@@ -47,6 +47,7 @@ const contactThree = new Contact("anna.panna@mail.com", "456-789-012", "anna.pan
 const contactFour = new Contact("eric.jerka@mail.com", "656-929-122", "eric.jerka.linkedIn.com");
 const contactFive = new Contact("rob.robsson@mail.com", "888-712-166", "rob.robsson.linkedIn.com");
 const contactSix = new Contact("otto.risotto@mail.com", "010-736-001", "otto.risotto.linkedIn.com");
+<<<<<<< HEAD
 const contactSeven = new Contact(
   "britta.karlsson@mail.com",
   "066-121-882",
@@ -54,12 +55,11 @@ const contactSeven = new Contact(
 <<<<<<< HEAD
 =======
 );
+=======
+const contactSeven = new Contact("britta.karlsson@mail.com", "066-121-882", "britta.karlsson.linkedIn.com");
+>>>>>>> info/data
 const contactEight = new Contact("patrik.star@mail.com", "332-669-212", "patrik.star.linkedIn.com");
-const contactNine = new Contact(
-  "carlos.carlotoni@mail.com",
-  "071-229-165",
-  "carlos.carlotoni.linkedIn.com"
-);
+const contactNine = new Contact("carlos.carlotoni@mail.com", "071-229-165", "carlos.carlotoni.linkedIn.com");
 const contactTen = new Contact("emma.femma@mail.com", "096-869-132", "emma.femma.linkedIn.com");
 
 // Student one
@@ -342,4 +342,8 @@ console.log(
     school: student.school,
     friends: student.friends.map((friend) => friend.name),
   }))
+<<<<<<< HEAD
 );
+=======
+);
+>>>>>>> info/data
