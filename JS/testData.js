@@ -72,7 +72,7 @@ const studentOne = new Student(
   "Gävle",
   "Yes",
   "Yes",
-  true,
+  false,
   false
 );
 

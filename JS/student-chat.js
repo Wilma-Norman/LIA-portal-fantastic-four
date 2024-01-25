@@ -17,7 +17,6 @@ let updateData;
 const timestamp = new Date().getTime();
 
 /* Hamburder menu START */
-
 function toggleModal() {
   var modal = document.getElementById("myModal");
   //   modal.style.display = modal.style.display === "none" ? "block" : "none";
@@ -41,6 +40,7 @@ const getLocalStorage = (pStringKey) => {
   return JSON.parse(localStorage.getItem(pStringKey));
 };
 if (getLocalStorage("allStudentList") == null) {
+  students[0].isActive = true;
   setLocalStorage("allStudentList", students);
   updateData = getLocalStorage("allStudentList");
 } else {
