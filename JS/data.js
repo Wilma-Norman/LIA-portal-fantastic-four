@@ -20,7 +20,8 @@ class Student {
     location,
     remote,
     mentor,
-    isActive
+    isActive,
+    receiver
   ) {
     this.id = studentIdCounter++;
     this.name = name;
@@ -34,8 +35,9 @@ class Student {
     this.remote = remote;
     this.mentor = mentor;
     this.friends = [];
-    this.chatHistory = {};
-    this.isActive = isActive === true;
+    this.chatHistory = [];
+    this.isActive = isActive;
+    this.receiver = receiver;
   }
 }
 
@@ -49,6 +51,8 @@ const contactSeven = new Contact(
   "britta.karlsson@mail.com",
   "066-121-882",
   "britta.karlsson.linkedIn.com"
+<<<<<<< HEAD
+=======
 );
 const contactEight = new Contact("patrik.star@mail.com", "332-669-212", "patrik.star.linkedIn.com");
 const contactNine = new Contact(
@@ -70,10 +74,33 @@ const studentOne = new Student(
   "Gävle",
   "Yes",
   "Yes",
+  false,
   false
+>>>>>>> info/data
 );
+const contactEight = new Contact("patrik.star@mail.com", "332-669-212", "patrik.star.linkedIn.com");
+const contactNine = new Contact(
+  "carlos.carlotoni@mail.com",
+  "071-229-165",
+  "carlos.carlotoni.linkedIn.com"
+);
+const contactTen = new Contact("emma.femma@mail.com", "096-869-132", "emma.femma.linkedIn.com");
 
-// Student two
+<<<<<<< HEAD
+// Student one
+const studentOne = new Student(
+  "Louise",
+  "Appelsson",
+  "22",
+  "Changemaker Educations",
+  contactOne,
+  "FrontEnd App Developer",
+  ["HTML", "CSS", "JavaScript"],
+  "Gävle",
+  "Yes",
+  "Yes",
+=======
+  // Student two
 
 const studentTwo = new Student(
   "Bob",
@@ -86,11 +113,45 @@ const studentTwo = new Student(
   "Göteborg",
   "Yes",
   "No",
+  false,
+>>>>>>> info/data
   false
 );
 
 // Student two
 
+<<<<<<< HEAD
+const studentTwo = new Student(
+  "Bob",
+  "Builder",
+  "27",
+  "Changemaker Educations",
+  contactTwo,
+  "FullStack Developer",
+  ["Angular", "Next.js", "Python"],
+  "Göteborg",
+  "Yes",
+  "No",
+=======
+const studentThree = new Student(
+  "Anna",
+  "Pannasson",
+  "34",
+  "Changemaker Educations",
+  contactThree,
+  "FullStack Developer",
+  ["Json", "Vite", "Angular", "JavaScript", "Python"],
+  "Luleå",
+  "Yes",
+  "No",
+  false,
+>>>>>>> info/data
+  false
+);
+
+// Student two
+
+<<<<<<< HEAD
 const studentThree = new Student(
   "Anna",
   "Pannasson",
@@ -107,6 +168,8 @@ const studentThree = new Student(
 
 // Student two
 
+=======
+>>>>>>> info/data
 const studentFour = new Student(
   "Eric",
   "Jerkan",
@@ -118,6 +181,10 @@ const studentFour = new Student(
   "Stockholm",
   "No",
   "Yes",
+<<<<<<< HEAD
+=======
+  false,
+>>>>>>> info/data
   false
 );
 
@@ -134,6 +201,10 @@ const studentFive = new Student(
   "Stockholm",
   "No",
   "No",
+<<<<<<< HEAD
+=======
+  false,
+>>>>>>> info/data
   false
 );
 
@@ -150,6 +221,10 @@ const studentSix = new Student(
   "Uppsala",
   "Yes",
   "Yes",
+<<<<<<< HEAD
+=======
+  false,
+>>>>>>> info/data
   false
 );
 
@@ -166,6 +241,10 @@ const studentSeven = new Student(
   "Oslo",
   "Yes",
   "Yes",
+<<<<<<< HEAD
+=======
+  false,
+>>>>>>> info/data
   false
 );
 
@@ -182,6 +261,10 @@ const studentEight = new Student(
   "Kopenhagen",
   "Yes",
   "No",
+<<<<<<< HEAD
+=======
+  false,
+>>>>>>> info/data
   false
 );
 
@@ -198,6 +281,10 @@ const studentNine = new Student(
   "Mora",
   "No",
   "Yes",
+<<<<<<< HEAD
+=======
+  false, 
+>>>>>>> info/data
   false
 );
 
@@ -214,6 +301,10 @@ const studentTen = new Student(
   "Stockholm",
   "No",
   "Yes",
+<<<<<<< HEAD
+=======
+  false,
+>>>>>>> info/data
   false
 );
 
