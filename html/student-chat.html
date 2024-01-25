@@ -44,19 +44,20 @@
       <section class="chat-sidebar">
         <h3>My Chat List</h3>
         <input class="search-chat-input" type="text" placeholder="🔍 Search.." />
-
-        <div class="chat-list-container">
-          <img class="chat-friend-img" src="../Image/lia.png" alt="" />
-          <div class="friend-info">
-            <p class="name">Luise</p>
-            <p class="last-message">
-              <span class="message">Hello</span> <span class="date">20.34</span>
-            </p>
+        <div class="scrool-container">
+          <div class="chat-person-container">
+            <img class="chat-friend-img" src="../Image/lia.png" alt="" />
+            <div class="friend-info">
+              <p class="name">Luise</p>
+              <p class="last-message">
+                <span class="message">Hello</span> <span class="date">20.34</span>
+              </p>
+            </div>
           </div>
         </div>
       </section>
       <div class="modal-container">
-        <div class="icon">
+        <div class="modal-icon">
           <div class="icon-bar one"></div>
           <div class="icon-bar two"></div>
           <div class="icon-bar three"></div>
@@ -65,17 +66,17 @@
           <!-- Modal Content Goes Here -->
           <!-- Student Caht page sidebar start -->
           <section class="chat-sidebar-hamburger">
-            <!-- <h3>My Chat List</h3> -->
             <input class="search-chat-input" type="text" placeholder="🔍 Search.." />
-
-            <div class="chat-list-container">
-              <!-- Dynamic chat list will come here -->
-              <img class="chat-friend-img" src="../Image/lia.png" alt="" />
-              <div class="friend-info">
-                <p class="name">Luise</p>
-                <p class="last-message">
-                  <span class="message">Hello</span> <span class="date">20.34</span>
-                </p>
+            <div class="scrool-container-hamburger">
+              <div class="chat-person-container">
+                <!-- Dynamic chat list will come here -->
+                <img class="chat-friend-img" src="../Image/lia.png" alt="" />
+                <div class="friend-info">
+                  <p class="name">Luise</p>
+                  <p class="last-message">
+                    <span class="message">Hello</span> <span class="date">20.34</span>
+                  </p>
+                </div>
               </div>
             </div>
           </section>
@@ -87,9 +88,11 @@
           <div class="active-left-area">
             <img class="active-chat-img" src="../Image/lia.png" alt="" />
             <div class="active-chat-info">
-              <p class="active-chat-person-namez">Luise Rose</p>
+              <p class="active-chat-person-name">Luise Rose</p>
               <p class="is-active online"><i class="fa-solid fa-circle-check"></i>Online</p>
-              <p class="is-active offline none-dis">Offline</p>
+              <p class="is-active offline none-dis">
+                <i class="fa-solid fa-circle-xmark"></i>Offline
+              </p>
             </div>
           </div>
           <div class="active-chat-icons">
@@ -98,7 +101,7 @@
           </div>
         </div>
         <div class="chat-area">
-          <p class="received-message">How are you man!</p>
+          <!-- <p class="received-message">How are you man!</p>
           <p class="sended-message">Thanks, I am fine, and you?</p>
           <p class="received-message">How are you man!</p>
           <p class="sended-message">Thanks, I am fine, and you?</p>
@@ -117,7 +120,7 @@
             Thanks, I am fine, and you? Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Minima officia hic quis, adipisci culpa quidem, totam ratione eos porro explicabo
             molestias. Inventore reiciendis, laboriosam totam quia voluptatibus atque aliquid quas.
-          </p>
+          </p> -->
         </div>
         <div class="chat-input-area">
           <input
@@ -128,7 +131,7 @@
           <div class="icons-for-sending">
             <i class="fa-solid fa-plus"></i>
             <i class="fa-solid fa-face-smile"></i>
-            <i class="fa-solid fa-paper-plane"></i>
+            <i id="send-message-button" class="fa-solid fa-paper-plane"></i>
           </div>
         </div>
       </section>
@@ -161,7 +164,8 @@
       </div>
     </footer>
     <!-- Footer area end -->
-    <script src="../JS/data.js"></script>
+    <!-- <script src="../JS/data.js"></script> -->
+    <script src="../JS/testData.js"></script>
     <script src="../JS/student-chat.js"></script>
   </body>
 </html>
