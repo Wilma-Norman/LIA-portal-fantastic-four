@@ -8,6 +8,7 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
+  max-width: 950px;
 }
 .login-select-title {
   position: absolute;
@@ -28,6 +29,7 @@
   align-items: center;
   background-color: #fff;
   width: 90%;
+  max-width: 950px;
   margin: auto;
   border-radius: 16px;
   margin-bottom: 30px;
