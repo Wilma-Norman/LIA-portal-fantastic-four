@@ -47,36 +47,10 @@ const contactThree = new Contact("anna.panna@mail.com", "456-789-012", "anna.pan
 const contactFour = new Contact("eric.jerka@mail.com", "656-929-122", "eric.jerka.linkedIn.com");
 const contactFive = new Contact("rob.robsson@mail.com", "888-712-166", "rob.robsson.linkedIn.com");
 const contactSix = new Contact("otto.risotto@mail.com", "010-736-001", "otto.risotto.linkedIn.com");
-<<<<<<< HEAD
 const contactSeven = new Contact(
   "britta.karlsson@mail.com",
   "066-121-882",
   "britta.karlsson.linkedIn.com"
-<<<<<<< HEAD
-=======
-);
-=======
-const contactSeven = new Contact("britta.karlsson@mail.com", "066-121-882", "britta.karlsson.linkedIn.com");
->>>>>>> info/data
-const contactEight = new Contact("patrik.star@mail.com", "332-669-212", "patrik.star.linkedIn.com");
-const contactNine = new Contact("carlos.carlotoni@mail.com", "071-229-165", "carlos.carlotoni.linkedIn.com");
-const contactTen = new Contact("emma.femma@mail.com", "096-869-132", "emma.femma.linkedIn.com");
-
-// Student one
-const studentOne = new Student(
-  "Louise",
-  "Appelsson",
-  "22",
-  "Changemaker Educations",
-  contactOne,
-  "FrontEnd App Developer",
-  ["HTML", "CSS", "JavaScript"],
-  "Gävle",
-  "Yes",
-  "Yes",
-  false,
-  false
->>>>>>> info/data
 );
 const contactEight = new Contact("patrik.star@mail.com", "332-669-212", "patrik.star.linkedIn.com");
 const contactNine = new Contact(
@@ -86,7 +60,6 @@ const contactNine = new Contact(
 );
 const contactTen = new Contact("emma.femma@mail.com", "096-869-132", "emma.femma.linkedIn.com");
 
-<<<<<<< HEAD
 // Student one
 const studentOne = new Student(
   "Louise",
@@ -99,8 +72,11 @@ const studentOne = new Student(
   "Gävle",
   "Yes",
   "Yes",
-=======
-  // Student two
+  false,
+  false
+);
+
+// Student two
 
 const studentTwo = new Student(
   "Bob",
@@ -114,25 +90,11 @@ const studentTwo = new Student(
   "Yes",
   "No",
   false,
->>>>>>> info/data
   false
 );
 
-// Student two
+// Student three
 
-<<<<<<< HEAD
-const studentTwo = new Student(
-  "Bob",
-  "Builder",
-  "27",
-  "Changemaker Educations",
-  contactTwo,
-  "FullStack Developer",
-  ["Angular", "Next.js", "Python"],
-  "Göteborg",
-  "Yes",
-  "No",
-=======
 const studentThree = new Student(
   "Anna",
   "Pannasson",
@@ -145,31 +107,11 @@ const studentThree = new Student(
   "Yes",
   "No",
   false,
->>>>>>> info/data
   false
 );
 
-// Student two
+// Student four
 
-<<<<<<< HEAD
-const studentThree = new Student(
-  "Anna",
-  "Pannasson",
-  "34",
-  "Changemaker Educations",
-  contactThree,
-  "FullStack Developer",
-  ["Json", "Vite", "Angular", "JavaScript", "Python"],
-  "Luleå",
-  "Yes",
-  "No",
-  false
-);
-
-// Student two
-
-=======
->>>>>>> info/data
 const studentFour = new Student(
   "Eric",
   "Jerkan",
@@ -181,10 +123,7 @@ const studentFour = new Student(
   "Stockholm",
   "No",
   "Yes",
-<<<<<<< HEAD
-=======
   false,
->>>>>>> info/data
   false
 );
 
@@ -201,10 +140,7 @@ const studentFive = new Student(
   "Stockholm",
   "No",
   "No",
-<<<<<<< HEAD
-=======
   false,
->>>>>>> info/data
   false
 );
 
@@ -221,10 +157,7 @@ const studentSix = new Student(
   "Uppsala",
   "Yes",
   "Yes",
-<<<<<<< HEAD
-=======
   false,
->>>>>>> info/data
   false
 );
 
@@ -241,10 +174,7 @@ const studentSeven = new Student(
   "Oslo",
   "Yes",
   "Yes",
-<<<<<<< HEAD
-=======
   false,
->>>>>>> info/data
   false
 );
 
@@ -261,10 +191,7 @@ const studentEight = new Student(
   "Kopenhagen",
   "Yes",
   "No",
-<<<<<<< HEAD
-=======
   false,
->>>>>>> info/data
   false
 );
 
@@ -281,10 +208,7 @@ const studentNine = new Student(
   "Mora",
   "No",
   "Yes",
-<<<<<<< HEAD
-=======
-  false, 
->>>>>>> info/data
+  false,
   false
 );
 
@@ -301,10 +225,7 @@ const studentTen = new Student(
   "Stockholm",
   "No",
   "Yes",
-<<<<<<< HEAD
-=======
   false,
->>>>>>> info/data
   false
 );
 
@@ -342,8 +263,4 @@ console.log(
     school: student.school,
     friends: student.friends.map((friend) => friend.name),
   }))
-<<<<<<< HEAD
 );
-=======
-);
->>>>>>> info/data
