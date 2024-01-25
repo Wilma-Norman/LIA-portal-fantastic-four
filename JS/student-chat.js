@@ -11,10 +11,10 @@ const writtenMessageInput = document.querySelector(".written-message-input");
 const activeChatPersonName = document.querySelector(".active-chat-person-name");
 const online = document.querySelector(".online");
 const offline = document.querySelector(".offline");
+const choseActiveStudent = document.querySelector(".chose-active-student");
 
 //variables
 let updateData;
-const timestamp = new Date().getTime();
 
 /* Hamburder menu START */
 function toggleModal() {
@@ -39,13 +39,158 @@ const setLocalStorage = (pStringKey, pArrar) => {
 const getLocalStorage = (pStringKey) => {
   return JSON.parse(localStorage.getItem(pStringKey));
 };
-if (getLocalStorage("allStudentList") == null) {
-  students[0].isActive = true;
-  setLocalStorage("allStudentList", students);
+// Sayfa yuklendiginde datayi locae yukle.   <option value="volvo">Who is logged?</option>
+const loadedPageSendDataLocalStorage = () => {
+  choseActiveStudent.innerHTML = `
+              <select id="active-students">
+                  ${students.map((student) => {
+                    return `<option value="${student.name} ${student.surname}">${student.name} ${student.surname}</option>`;
+                  })}
+              </select>
+      `;
+  if (getLocalStorage("allStudentList") == null) {
+    students.forEach((student) => {
+      student.isActive = false;
+    });
+
+    // Aktif öğrenciyi bul
+    const activeStudent = students.find((student) => {
+      const nameSurname = `${student.name} ${student.surname}`;
+      return nameSurname === document.getElementById("active-students").value;
+    });
+
+    activeStudent.isActive = true;
+    setLocalStorage("allStudentList", students);
+    updateData = getLocalStorage("allStudentList");
+  } else {
+    updateData = getLocalStorage("allStudentList");
+    // Tüm öğrencilerin isActive özelliğini false yap
+    updateData.forEach((student) => {
+      student.isActive = false;
+    });
+    // Aktif öğrenciyi bul
+    const activeStudent = updateData.find((student) => {
+      const nameSurname = `${student.name} ${student.surname}`;
+      return nameSurname === document.getElementById("active-students").value;
+    });
+    activeStudent.isActive = true;
+    setLocalStorage("allStudentList", updateData);
+  }
+};
+loadedPageSendDataLocalStorage();
+
+function selectActiveStudentChanged() {
+  const choseSelectedElement = document.getElementById("active-students");
+
+  // Seçilen değeri al
+  const selectedValue = choseSelectedElement.value;
+
+  // Güncel veriyi local storagedan al
   updateData = getLocalStorage("allStudentList");
-} else {
-  updateData = getLocalStorage("allStudentList");
+
+  // Aktif öğrenciyi bul
+  const activeStudent = updateData.find((student) => {
+    const nameSurname = `${student.name} ${student.surname}`;
+    return nameSurname === selectedValue;
+  });
+
+  // Eğer aktif öğrenci bulunduysa
+  if (activeStudent) {
+    // Tüm öğrencilerin isActive özelliğini false yap
+    updateData.forEach((student) => {
+      if (student.id == activeStudent.id) {
+        student.isActive = true;
+      } else {
+        student.isActive = false;
+      }
+    });
+
+    // Seçilen öğrencinin isActive özelliğini true yap
+    // activeStudent.isActive = true;
+
+    // Güncellenmiş veriyi local storageda sakla
+    setLocalStorage("allStudentList", updateData);
+    renderFriendsChatList();
+  } else {
+    console.log("No active students found.");
+  }
 }
+// Değişiklik dinleyicisini <select> elementine ekle
+choseActiveStudent.addEventListener("change", selectActiveStudentChanged);
+console.log(choseActiveStudent);
+
+// // Değişiklik dinleyicisi fonksiyonu
+// function selectActiveStudentChanged() {
+//   const choseSelectedElement = document.getElementById("active-students");
+
+//   const selectedValue = choseSelectedElement.value;
+//   const activeStudent = updateData.find((student) => {
+//     const nameSurname = `${student.name} ${student.surname}`;
+//     return nameSurname === selectedValue;
+//   });
+
+//   console.log(`Seçilen değer: ${selectedValue}`);
+//   console.log(activeStudent);
+// }
+
+// Mesajlari gonderim tarihine gore siralayan fonksiyon
+const SortMessages = (pMessagesArray) => {
+  console.log(pMessagesArray);
+  const sortedMessagesList = pMessagesArray.sort(function (a, b) {
+    return a.timestamp - b.timestamp;
+  });
+  console.log(sortedMessagesList);
+
+  return sortedMessagesList;
+};
+// Sitede oturum acan kisinin chat alanina, mesajlastigi kisi ile arasindaki mesajlari render eder
+const renderMessage = (pReceiverId) => {
+  updateData = getLocalStorage("allStudentList");
+
+  const updatedList = updateData.map((student) => {
+    return { ...student, receiver: student.id === pReceiverId };
+  });
+  console.log(updatedList);
+  setLocalStorage("allStudentList", updatedList);
+  updateData = getLocalStorage("allStudentList");
+
+  const receiverPerson = updateData.filter((student) => student.id == pReceiverId);
+  // This write receiver name to right side
+  activeChatPersonName.innerText = `${receiverPerson[0].name} ${receiverPerson[0].surname}`;
+  if (receiverPerson[0].isActive == true) {
+    online.classList.remove("none-dis");
+    offline.classList.add("none-dis");
+  } else {
+    online.classList.add("none-dis");
+    offline.classList.remove("none-dis");
+  }
+
+  updateData = getLocalStorage("allStudentList");
+  const sender = updateData.find((student) => student.isActive == true);
+  if (sender.chatHistory == undefined) {
+    chatArea.innerHTML = "";
+  } else {
+    const filterIncomingChatHistory = sender.chatHistory.filter(
+      (message) => message.senderId == sender.id && message.receiverId == receiverPerson[0].id
+    );
+    const filterOngoingChatHistory = sender.chatHistory.filter(
+      (message) => message.senderId == receiverPerson[0].id && message.receiverId == sender.id
+    );
+
+    console.log(receiverPerson[0].id);
+    console.log(sender.id);
+    console.log(filterIncomingChatHistory.concat(filterOngoingChatHistory));
+
+    const messagesList = SortMessages(filterIncomingChatHistory.concat(filterOngoingChatHistory));
+    chatArea.innerHTML = messagesList
+      .map((message) => {
+        return message.type === "incoming"
+          ? `<p class="received-message">${message.content}</p>`
+          : `<p class="sended-message">${message.content}</p>`;
+      })
+      .join("");
+  }
+};
 
 /* Render dynamic friends list to sidebar of student chat page  START*/
 const renderFriendsChatList = () => {
@@ -79,6 +224,16 @@ const renderFriendsChatList = () => {
 
   scroolContainer.innerHTML = chatList;
   scroolContainerHamburger.innerHTML = chatList;
+
+  // arkadas listesi yuklendiginde ilk siradaki kisinin alici olarak belirlenmesi
+  updateData = getLocalStorage("allStudentList");
+  updateData.forEach((student) => (student.receiver = false));
+  const findReceiver = updateData.find((student) => student.id == friendsList[0].id);
+  findReceiver.receiver = true;
+  renderMessage(findReceiver.id);
+  //   friendsList[0].receiver = true;
+  setLocalStorage("allStudentList", updateData);
+  console.log(friendsList[0]);
   activeChatPersonName.innerText = `${friendsList[0].name} ${friendsList[0].surname}`;
   if (friendsList[0].isActive == true) {
     online.classList.remove("none-dis");
@@ -91,93 +246,60 @@ const renderFriendsChatList = () => {
 renderFriendsChatList();
 /* Render dynamic friends list to sidebar of student chat page  END*/
 
-// Sitede oturum acan kisinin chat alanina, mesajlastigi kisi ile arasindaki mesajlari render eder
-const renderMessage = (pReceiverId) => {
-  updateData = getLocalStorage("allStudentList");
-
-  const updatedList = updateData.map((student) => {
-    return { ...student, receiver: student.id === pReceiverId };
-  });
-
-  setLocalStorage("allStudentList", updatedList);
-  updateData = getLocalStorage("allStudentList");
-
-  const receiverPerson = updateData.filter((student) => student.id == pReceiverId);
-  // This write receiver name to right side
-  activeChatPersonName.innerText = `${receiverPerson[0].name} ${receiverPerson[0].surname}`;
-  if (receiverPerson[0].isActive == true) {
-    online.classList.remove("none-dis");
-    offline.classList.add("none-dis");
-  } else {
-    online.classList.add("none-dis");
-    offline.classList.remove("none-dis");
-  }
-
-  console.log(receiverPerson);
-  if (receiverPerson[0].chatHistory == undefined) {
-    chatArea.innerHTML = "";
-  } else {
-    const messagesList = SortMessages(receiverPerson[0].chatHistory);
-    chatArea.innerHTML = messagesList
-      .map((message) => {
-        return message.type === "incoming"
-          ? `<p class="sended-message">${message.content}</p>`
-          : `<p class="received-message">${message.content}</p>`;
-      })
-      .join("");
-  }
-};
-
-// Mesajlari gonderim tarihine gore siralayan fonksiyon
-const SortMessages = (pMessagesArray) => {
-  const sortedMessagesList = pMessagesArray.sort(function (a, b) {
-    return a.timestamp - b.timestamp;
-  });
-
-  return sortedMessagesList;
-};
-
 // This fonksiyon send message
 const sendNewMessage = () => {
-  updateData = getLocalStorage("allStudentList");
+  const timestamp = new Date().getTime();
 
-  const sender = updateData.find((student) => student.isActive === true);
-  const receiver = updateData.find((student) => student.receiver === true);
+  updateData = getLocalStorage("allStudentList");
   const messageContent = writtenMessageInput.value;
-  console.log(updateData);
-  console.log(receiver);
-  // Gönderen için yeni mesaj
-  const newMessageSender = {
-    receiverId: receiver.id,
-    senderId: sender.id,
-    content: messageContent,
-    type: "outgoing",
-    timestamp: timestamp,
-  };
+  if (messageContent) {
+    const sender = updateData.find((student) => student.isActive === true);
+    const receiver = updateData.find((student) => student.receiver === true);
+    console.log(updateData);
+    console.log(receiver);
+    // Gönderen için yeni mesaj
+    const newMessageSender = {
+      receiverId: receiver.id,
+      senderId: sender.id,
+      content: messageContent,
+      type: "outgoing",
+      timestamp: timestamp,
+    };
 
-  // Alıcı için yeni mesaj
-  const newMessageReceiver = {
-    receiverId: receiver.id,
-    senderId: sender.id,
-    content: messageContent,
-    type: "incoming",
-    timestamp: timestamp,
-  };
+    // Alıcı için yeni mesaj
+    const newMessageReceiver = {
+      receiverId: receiver.id,
+      senderId: sender.id,
+      content: messageContent,
+      type: "incoming",
+      timestamp: timestamp,
+    };
 
-  // Gönderenin ve alıcının chatHistory alanlarına yeni mesajları ekleyin
-  sender.chatHistory.push(newMessageSender);
-  receiver.chatHistory.push(newMessageReceiver);
+    // Gönderenin ve alıcının chatHistory alanlarına yeni mesajları ekleyin
+    sender.chatHistory.push(newMessageSender);
+    receiver.chatHistory.push(newMessageReceiver);
 
-  // Güncellenmiş veriyi localStorage'a geri yazın
-  setLocalStorage("allStudentList", updateData);
+    // Güncellenmiş veriyi localStorage'a geri yazın
+    setLocalStorage("allStudentList", updateData);
 
-  // updateData'ı güncelleyin
-  updateData = getLocalStorage("allStudentList");
-  renderMessage(receiver.id);
+    // updateData'ı güncelleyin
+    updateData = getLocalStorage("allStudentList");
+    renderMessage(receiver.id);
 
-  console.log(sender);
-  console.log(receiver);
+    writtenMessageInput.value = "";
+    console.log(sender);
+    console.log(receiver);
+  } else {
+    alert("Sending an empty message may not be polite :)");
+  }
+
   console.log(messageContent);
 };
 
 sendMessageButton.addEventListener("click", sendNewMessage);
+// Enter tuşu ile formu gönderme
+document.addEventListener("keyup", function (event) {
+  if (event.key === "Enter") {
+    sendNewMessage();
+  }
+});

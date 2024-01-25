@@ -4,6 +4,23 @@
   padding: 0 12px;
   width: 90%;
   margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.login-select-title {
+  position: absolute;
+  right: 7px;
+  top: 32px;
+  color: #e0da07;
+  font-size: 0.7rem;
+}
+#active-students {
+  height: 26px;
+  border-radius: 6px;
+  padding: 0 8px;
+  color: #278509;
 }
 .chat-main-container {
   display: flex;
@@ -299,6 +316,7 @@
 @media screen and (max-width: 786px) {
   .chat-title {
     margin-bottom: 20px;
+    margin-top: 20px;
   }
   .modal {
     /* max-width: 100%; */
