@@ -47,17 +47,9 @@ const contactThree = new Contact("anna.panna@mail.com", "456-789-012", "anna.pan
 const contactFour = new Contact("eric.jerka@mail.com", "656-929-122", "eric.jerka.linkedIn.com");
 const contactFive = new Contact("rob.robsson@mail.com", "888-712-166", "rob.robsson.linkedIn.com");
 const contactSix = new Contact("otto.risotto@mail.com", "010-736-001", "otto.risotto.linkedIn.com");
-const contactSeven = new Contact(
-  "britta.karlsson@mail.com",
-  "066-121-882",
-  "britta.karlsson.linkedIn.com"
-);
+const contactSeven = new Contact("britta.karlsson@mail.com", "066-121-882", "britta.karlsson.linkedIn.com");
 const contactEight = new Contact("patrik.star@mail.com", "332-669-212", "patrik.star.linkedIn.com");
-const contactNine = new Contact(
-  "carlos.carlotoni@mail.com",
-  "071-229-165",
-  "carlos.carlotoni.linkedIn.com"
-);
+const contactNine = new Contact("carlos.carlotoni@mail.com", "071-229-165", "carlos.carlotoni.linkedIn.com");
 const contactTen = new Contact("emma.femma@mail.com", "096-869-132", "emma.femma.linkedIn.com");
 
 // Student one
@@ -110,7 +102,7 @@ const studentThree = new Student(
   false
 );
 
-// Student three
+// Student two
 
 const studentFour = new Student(
   "Eric",
@@ -230,8 +222,37 @@ const studentTen = new Student(
 );
 
 const students = [];
-const contacts = [contactOne, contactTwo, contactThree, contactFour, contactFive, contactSix, contactSeven, contactEight, contactNine, contactTen];
+const contacts = [
+  contactOne,
+  contactTwo,
+  contactThree,
+  contactFour,
+  contactFive,
+  contactSix,
+  contactSeven,
+  contactEight,
+  contactNine,
+  contactTen,
+];
 
-students.push(studentOne, studentTwo, studentThree, studentFour, studentFive, studentSix, studentSeven, studentEight, studentNine, studentTen);
+students.push(
+  studentOne,
+  studentTwo,
+  studentThree,
+  studentFour,
+  studentFive,
+  studentSix,
+  studentSeven,
+  studentEight,
+  studentNine,
+  studentTen
+);
 
-console.log(students.map(student => ({ name: student.name, surname: student.surname, school: student.school, friends: student.friends.map(friend => friend.name) })));
+console.log(
+  students.map((student) => ({
+    name: student.name,
+    surname: student.surname,
+    school: student.school,
+    friends: student.friends.map((friend) => friend.name),
+  }))
+);
