@@ -20,7 +20,8 @@ class Student {
     location,
     remote,
     mentor,
-    isActive
+    isActive,
+    receiver
   ) {
     this.id = studentIdCounter++;
     this.name = name;
@@ -34,8 +35,9 @@ class Student {
     this.remote = remote;
     this.mentor = mentor;
     this.friends = [];
-    this.chatHistory = {};
-    this.isActive = isActive === true;
+    this.chatHistory = [];
+    this.isActive = isActive;
+    this.receiver = receiver;
   }
 }
 
@@ -70,6 +72,7 @@ const studentOne = new Student(
   "Gävle",
   "Yes",
   "Yes",
+  false,
   false
 );
 
@@ -86,10 +89,11 @@ const studentTwo = new Student(
   "Göteborg",
   "Yes",
   "No",
+  false,
   false
 );
 
-// Student two
+// Student three
 
 const studentThree = new Student(
   "Anna",
@@ -102,10 +106,11 @@ const studentThree = new Student(
   "Luleå",
   "Yes",
   "No",
+  false,
   false
 );
 
-// Student two
+// Student four
 
 const studentFour = new Student(
   "Eric",
@@ -118,6 +123,7 @@ const studentFour = new Student(
   "Stockholm",
   "No",
   "Yes",
+  false,
   false
 );
 
@@ -134,6 +140,7 @@ const studentFive = new Student(
   "Stockholm",
   "No",
   "No",
+  false,
   false
 );
 
@@ -150,6 +157,7 @@ const studentSix = new Student(
   "Uppsala",
   "Yes",
   "Yes",
+  false,
   false
 );
 
@@ -166,6 +174,7 @@ const studentSeven = new Student(
   "Oslo",
   "Yes",
   "Yes",
+  false,
   false
 );
 
@@ -182,6 +191,7 @@ const studentEight = new Student(
   "Kopenhagen",
   "Yes",
   "No",
+  false,
   false
 );
 
@@ -198,6 +208,7 @@ const studentNine = new Student(
   "Mora",
   "No",
   "Yes",
+  false,
   false
 );
 
@@ -214,6 +225,7 @@ const studentTen = new Student(
   "Stockholm",
   "No",
   "Yes",
+  false,
   false
 );
 
@@ -242,13 +254,4 @@ students.push(
   studentEight,
   studentNine,
   studentTen
-);
-
-console.log(
-  students.map((student) => ({
-    name: student.name,
-    surname: student.surname,
-    school: student.school,
-    friends: student.friends.map((friend) => friend.name),
-  }))
 );
