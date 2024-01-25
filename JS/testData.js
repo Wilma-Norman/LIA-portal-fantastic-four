@@ -21,7 +21,7 @@ class Student {
     remote,
     mentor,
     isActive,
-    reciever
+    receiver
   ) {
     this.id = studentIdCounter++;
     this.name = name;
@@ -37,7 +37,7 @@ class Student {
     this.friends = [];
     this.chatHistory = [];
     this.isActive = isActive;
-    this.reciever = reciever;
+    this.receiver = receiver;
   }
 }
 
