@@ -96,16 +96,6 @@ body {
     padding-left: 60px;
     background: linear-gradient(270deg, var(--off-white) 50%, rgba(236,236,236,0) 100%); 
 }
-/* var(--off-white) */
-.rofile-bio:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-    
-}
 
 .link-container {
     width: 100%;
