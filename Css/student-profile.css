@@ -193,6 +193,7 @@ body {
 
     .divider-container {
         display: flex;
+        min-width: 30px;
         margin: 0 8px;
         justify-content: center;
         align-items: center;
@@ -206,7 +207,7 @@ body {
     }
 
     .profile-card-wrapper {
-        width: 45%;
+        width: 50%;
         height: 100%;
     }
     
@@ -231,13 +232,14 @@ body {
     }
 
     .container-text {
-        width: 45%;
+        width: 50%;
         height: 100%;
         padding: 12px;
+        margin: auto 0;
     }
 
     .container-text > * {
         padding: 8px;
+        margin-left: 10%;
     }
-    
 }
