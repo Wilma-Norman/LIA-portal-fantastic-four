@@ -1,4 +1,4 @@
-.temp-center {
+/* .temp-center {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,5 +19,125 @@
 
 .temp-proff-button:hover {
     cursor: pointer;
+} */
+
+.student-main-container {
+  width: 90%;
+  margin: auto;
+  padding: 24px 0;
+  margin-bottom: 24px;
+  color: #454545;
+  h2 {
+    margin: 20px 0;
+    color: #fff;
+  }
+}
+.searchbar-container {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  .student-search-button {
+    width: 82px;
+    height: 40px;
+    margin-right: -4px;
+    border-radius: 14px 0 0 14px;
+    border: 2px solid var(--primary-light);
+    background-color: var(--primary-light);
+    color: #fff;
+    text-align: center;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .student-search-button:hover {
+    background-color: var(--primary);
+    border: 2px solid var(--white);
+  }
+  .student-search-input {
+    width: calc(100% - 88px);
+    height: 40px;
+    border-radius: 0 14px 14px 0;
+    border: 2px solid #fff;
+    padding: 0 12px;
+  }
+}
+.student-sidebar-and-main-content-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+.student-sidebar {
+  width: 27%;
+  min-height: 60vh;
+  background-color: var(--off-white);
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  h3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+}
+.student-sidebar > div {
+  margin-bottom: 40px;
+}
+.student-main-content {
+  width: 73%;
+  min-height: 60vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  justify-content: space-between;
+  padding: 12px;
+  background-color: var(--off-white);
+  border-radius: 16px;
+  margin-left: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
+/* card css*/
+.internship-small-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  border-radius: 12px;
+  padding: 12px;
+  width: 45%;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+.card-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-right: 12px;
+  align-self: center;
+}
+.card-body {
+  align-self: stretch;
+  border-left: 2px solid #d3d2d2;
+  padding-left: 13px;
+}
+.internship-title,
+.internship-short-info,
+.internship-date {
+  margin-bottom: 12px;
+}
+.internship-short-info {
+  margin-bottom: 12px;
+}
+.internship-date {
+  color: #9c9c9c;
+}
+.get-long-info {
+  width: 100%;
+  text-align: center;
+  padding: 8px 0;
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  color: var(--primary);
+}
+.get-long-info:hover {
+  color: #fff;
+  background-color: var(--primary);
+}

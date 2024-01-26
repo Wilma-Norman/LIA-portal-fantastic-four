@@ -12,12 +12,13 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="../Css/student-main-page.css" />
     <link rel="stylesheet" href="../Css/global.css" />
     <link rel="stylesheet" href="../Css/footer.css" />
+    <link rel="stylesheet" href="../Css/student-main-page.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
     <script src="../JS/student-main-page.js" defer></script>
     <script src="../JS/data.js" defer></script>
+    <script src="../JS/data-company.js" defer></script>
   </head>
   <body>
     <header>
@@ -39,9 +40,76 @@
         </nav>
       </div>
     </header>
-    <div class="temp-center">
-      <a class="temp-proff-button" href="student-profile.html?id=2">View Profile</a>
-    </div>
+    <main class="student-main-container">
+      <h2>Search for an internship</h2>
+      <section class="searchbar-container">
+        <button class="student-search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <input
+          class="student-search-input"
+          type="text"
+          placeholder="write a job title or company name"
+        />
+      </section>
+      <section class="student-sidebar-and-main-content-container">
+        <aside class="student-sidebar">
+          <h3 class="filter-title">Filters <i class="fa-solid fa-filter"></i></h3>
+          <div class="filter-with-title">
+            <div>
+              <input type="checkbox" id="fullstack" name="interest" value="fullstack" />
+              <label for="music">Frontend</label>
+            </div>
+            <div>
+              <input type="checkbox" id="fullstack" name="interest" value="fullstack" />
+              <label for="music">Fullstack</label>
+            </div>
+          </div>
+          <div class="filter-with-company">
+            <div>
+              <input type="checkbox" id="fullstack" name="interest" value="fullstack" />
+              <label for="music">Frontend</label>
+            </div>
+            <div>
+              <input type="checkbox" id="fullstack" name="interest" value="fullstack" />
+              <label for="music">Fullstack</label>
+            </div>
+          </div>
+          <div class="filter-with-situation">
+            <div>
+              <input type="checkbox" id="fullstack" name="interest" value="fullstack" />
+              <label for="music">Frontend</label>
+            </div>
+            <div>
+              <input type="checkbox" id="fullstack" name="interest" value="fullstack" />
+              <label for="music">Fullstack</label>
+            </div>
+          </div>
+          <div class="filter-with-place">
+            <div>
+              <input type="checkbox" id="fullstack" name="interest" value="fullstack" />
+              <label for="music">Frontend</label>
+            </div>
+            <div>
+              <input type="checkbox" id="fullstack" name="interest" value="fullstack" />
+              <label for="music">Fullstack</label>
+            </div>
+          </div>
+        </aside>
+        <section class="student-main-content">
+          <div class="internship-small-card">
+            <img class="card-img" src="../Image/blocket_logo.png" alt="" />
+            <div class="card-body">
+              <h4 class="internship-title">Frontend Developer</h4>
+              <p class="internship-short-info">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia corrupti voluptates
+                blanditiis quidem officia doloribus mollitia alias nulla.
+              </p>
+              <p class="internship-date">20.02.2024 - 20.08.2024</p>
+              <button class="get-long-info">View Internship</button>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
     <!-- Footer area start -->
     <footer>
       <div class="footer-container">
