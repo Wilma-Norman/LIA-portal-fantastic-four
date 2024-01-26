@@ -61,7 +61,7 @@ body {
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-.profile-summary-wrapper > p {
+.student-name {
     margin: 0 auto;
     font-size: x-large;
 }
@@ -78,12 +78,33 @@ body {
 .profile-bio {
     position: relative;
     width: 100%;
+    min-width: 327px; /* to make the profile not collapse when there is no texrt in the bio*/
     min-height: 60px;
     max-height: 100px;
     color: var(--primary-light);
     overflow: hidden;
-    /* white-space: nowrap; */
     text-overflow: ellipsis;
+}
+
+.expand-button { /* Might need to be rewritten if the method to position the link is changed */
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: var(--primary);
+    text-decoration: underline;
+    z-index: 10;
+    padding-left: 60px;
+    background: linear-gradient(270deg, var(--off-white) 50%, rgba(236,236,236,0) 100%); 
+}
+/* var(--off-white) */
+.rofile-bio:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    
 }
 
 .link-container {
@@ -159,14 +180,6 @@ body {
 
 
 
-.fake-link { /* Might need to be rewritten if the method to position the link is changed */
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    color: var(--primary);
-    text-decoration: underline;
-    
-}
 
 /* End off temporary css */
 
@@ -187,7 +200,7 @@ body {
         border-radius: 20px;
     }
 
-    .left {
+    .utility-button-left {
         color: var(--white);
     }
 
@@ -229,6 +242,10 @@ body {
         flex-direction: column;
         gap: 8px;
         margin-left: 10%;
+    }
+
+    .expand-button {
+        background: linear-gradient(270deg, var(--white) 50%, rgba(236,236,236,0) 100%); 
     }
 
     .container-text {
