@@ -79,8 +79,31 @@
     margin-bottom: 16px;
   }
 }
+.get-filtred-list-1,
+.get-filtred-list-2 {
+  width: 100%;
+  padding: 3px 10px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 6px;
+  color: var(--primary-light);
+  border: 1px solid var(--primary-light);
+  transition: all 0.3s ease;
+}
+.get-filtred-list-1:hover,
+.get-filtred-list-2:hover {
+  background-color: var(--primary-light);
+  color: var(--white);
+  border: 1px solid var(--primary);
+}
 .student-sidebar > div {
-  margin-bottom: 40px;
+  margin-bottom: 16px;
+}
+.student-sidebar .title {
+  margin-bottom: 4px;
 }
 .student-main-content {
   width: 73%;
@@ -98,25 +121,26 @@
 
 /* card css*/
 .internship-small-card {
-  display: flex;
+  /* display: flex;
   justify-content: space-between;
-  align-items: start;
+  align-items: start; */
   border-radius: 12px;
   padding: 12px;
   width: 45%;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 .card-img {
-  width: 120px;
-  height: 120px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   margin-right: 12px;
-  align-self: center;
+  /* align-self: center; */
+  float: left;
 }
 .card-body {
-  align-self: stretch;
+  /* align-self: stretch;
   border-left: 2px solid #d3d2d2;
-  padding-left: 13px;
+  padding-left: 13px; */
 }
 .internship-title,
 .internship-short-info,
@@ -128,6 +152,7 @@
 }
 .internship-date {
   color: #9c9c9c;
+  text-align: center;
 }
 .get-long-info {
   width: 100%;
@@ -141,3 +166,5 @@
   color: #fff;
   background-color: var(--primary);
 }
+
+/*  */

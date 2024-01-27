@@ -17,8 +17,8 @@
     <link rel="stylesheet" href="../Css/student-main-page.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
     <script src="../JS/student-main-page.js" defer></script>
-    <script src="../JS/data.js" defer></script>
-    <script src="../JS/data-company.js" defer></script>
+    <!-- <script src="../JS/data.js" defer></script> -->
+    <!-- <script src="../JS/data-company.js" defer></script> -->
   </head>
   <body>
     <header>
@@ -53,46 +53,52 @@
       <section class="student-sidebar-and-main-content-container">
         <aside class="student-sidebar">
           <h3 class="filter-title">Filters <i class="fa-solid fa-filter"></i></h3>
-          <div class="filter-with-title">
-            <div>
+          <button class="get-filtred-list-1">
+            Filter <i class="fa-solid fa-hand-pointer"></i>
+          </button>
+          <div class="filter-with-sector">
+            <h4 class="filter-sector-title title">Sectors</h4>
+            <!-- <div>
               <input type="checkbox" id="fullstack" name="interest" value="fullstack" />
               <label for="music">Frontend</label>
-            </div>
-            <div>
-              <input type="checkbox" id="fullstack" name="interest" value="fullstack" />
-              <label for="music">Fullstack</label>
-            </div>
+            </div> -->
           </div>
-          <div class="filter-with-company">
-            <div>
+          <div class="filter-with-city">
+            <h4 class="filter-city-title title">Cities</h4>
+            <!-- <div>
               <input type="checkbox" id="fullstack" name="interest" value="fullstack" />
-              <label for="music">Frontend</label>
-            </div>
-            <div>
-              <input type="checkbox" id="fullstack" name="interest" value="fullstack" />
-              <label for="music">Fullstack</label>
-            </div>
+              <label for="music">Remote</label>
+            </div> -->
           </div>
           <div class="filter-with-situation">
+            <h4 class="filter-situation-title title">Situation</h4>
             <div>
-              <input type="checkbox" id="fullstack" name="interest" value="fullstack" />
-              <label for="music">Frontend</label>
+              <input type="checkbox" id="fullstack" name="interest" value="Remote" />
+              <label for="music">Remote</label>
             </div>
             <div>
-              <input type="checkbox" id="fullstack" name="interest" value="fullstack" />
-              <label for="music">Fullstack</label>
-            </div>
-          </div>
-          <div class="filter-with-place">
-            <div>
-              <input type="checkbox" id="fullstack" name="interest" value="fullstack" />
-              <label for="music">Frontend</label>
-            </div>
-            <div>
-              <input type="checkbox" id="fullstack" name="interest" value="fullstack" />
-              <label for="music">Fullstack</label>
+              <input type="checkbox" id="fullstack" name="interest" value="Onsite" />
+              <label for="music">Onsite</label>
             </div>
           </div>
+          <div class="filter-with-date">
+            <h4 class="filter-date-title title">Starting Date</h4>
+            <div>
+              <input type="checkbox" id="fullstack" name="interest" value="aMonth" />
+              <label for="music">In a month</label>
+            </div>
+            <div>
+              <input type="checkbox" id="fullstack" name="interest" value="threeMonth" />
+              <label for="music">In three month</label>
+            </div>
+            <div>
+              <input type="checkbox" id="fullstack" name="interest" value="afterThreeMonth" />
+              <label for="music">After three month</label>
+            </div>
+          </div>
+          <button class="get-filtred-list-2">
+            Filter <i class="fa-solid fa-hand-pointer"></i>
+          </button>
         </aside>
         <section class="student-main-content">
           <div class="internship-small-card">
@@ -137,5 +143,6 @@
       </div>
     </footer>
     <!-- Footer area end -->
+    <script src="../JS/testData.js"></script>
   </body>
 </html>
