@@ -172,10 +172,39 @@ body {
         display: flex;
         flex-direction: column;
         flex-grow: 3;
+        position: relative;
+        overflow: auto;
+        max-height: 80vh;
         min-width: 25vw;
         border-radius: 20px;
         padding: 30px;
         background-color: var(--off-white);
+        gap: 8px;
+    }
+
+    .filter-container > .title {
+        font-size: 32px;
+        border-bottom: 2px solid var(--primary);
+    }
+
+    .filter-title {
+        font-size: 20px;
+        margin-top: 8px;
+    }
+
+    .filter-list {
+        list-style: none;
+    }
+
+    .filter-item {
+        line-height: 20px;
+    }
+
+    .filter-item > label > input {
+        appearance: none;
+        width: 1rem;
+        height: 1rem;
+        border: 1px solid var(--black);
     }
 
     .small-profile {
