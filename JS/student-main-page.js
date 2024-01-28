@@ -34,7 +34,7 @@ const renderFilterList = (pInternshipList) => {
     .map((sector) => {
       return `
         <div>
-            <input type="checkbox" id="fullstack" name="${sector}" value="${sector}" />
+            <input type="checkbox" class="filter-checkbox ${sector}" name="${sector}" value="${sector}" />
             <label for="${sector}">${sector}</label>
         </div>
         `;
@@ -46,7 +46,7 @@ const renderFilterList = (pInternshipList) => {
     .map((city) => {
       return `
       <div>
-          <input type="checkbox" id="fullstack" name="${city}" value="${city}" />
+          <input type="checkbox" class="filter-checkbox ${city}" name="${city}" value="${city}" />
           <label for="${city}">${city}</label>
       </div>
       `;
@@ -135,8 +135,7 @@ const getInternshipLargeInfo = (pInternshipId) => {
   const targetInternship = updateInternshipsdata.find(
     (internship) => internship.id == pInternshipId
   );
-  console.log(targetInternship);
-  console.log("seeelamtargetInternship");
+
   studentMainContent.innerHTML = `
       <div class="internship-large-card">
             <img class="card-img" src="${
@@ -191,3 +190,15 @@ const getInternshipLargeInfo = (pInternshipId) => {
 const goBack = () => {
   renderInternshipList(updateInternshipsdata);
 };
+
+/* filter events */
+
+// Ortak dinleyici fonksiyon
+function checkboxListener(event) {
+  console.log("Checkbox değeri: ", event.target.value);
+}
+
+// Ortak sınıfa sahip checkbox'lar için dinleyici atama
+commonCheckboxes.forEach(function (checkbox) {
+  checkbox.addEventListener("change", checkboxListener);
+});
