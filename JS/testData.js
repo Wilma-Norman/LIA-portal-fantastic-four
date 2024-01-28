@@ -293,7 +293,7 @@ function Internship(
 
 // Static variables for Internship constructor
 nextId = 100;
-nextImg = 200;
+nextImg = 300;
 cityIndex = 0;
 cities = ["Stockholm", "Malmo", "Sundsvall", "Goteborg"];
 

@@ -78,8 +78,8 @@
               <input
                 type="checkbox"
                 class="filter-checkbox situation"
-                name="interest"
-                value="Remote"
+                name="situation"
+                value="remote"
               />
               <label for="music">Remote</label>
             </div>
@@ -87,39 +87,39 @@
               <input
                 type="checkbox"
                 class="filter-checkbox situation"
-                name="interest"
-                value="Onsite"
+                name="situation"
+                value="onsite"
               />
               <label for="music">Onsite</label>
             </div>
           </div>
-          <div class="filter-with-date">
+          <!-- <div class="filter-with-date">
             <h4 class="filter-date-title title">Starting Date</h4>
             <div>
-              <input type="checkbox" class="filter-checkbox date" name="interest" value="aMonth" />
+              <input type="checkbox" class="filter-checkbox date" name="date" value="aMonth" />
               <label for="music">In a month</label>
             </div>
             <div>
-              <input
-                type="checkbox"
-                class="filter-checkbox date"
-                name="interest"
-                value="threeMonth"
-              />
+              <input type="checkbox" class="filter-checkbox date" name="date" value="threeMonth" />
               <label for="music">In three month</label>
             </div>
             <div>
               <input
                 type="checkbox"
                 class="filter-checkbox date"
-                name="interest"
+                name="date"
                 value="afterThreeMonth"
               />
               <label for="music">After three month</label>
             </div>
-          </div>
+          </div> -->
           <button class="get-filtred-list-2">
             Get filtered list <i class="fa-solid fa-list-check"></i>
+          </button>
+          <button class="clearFilters">
+            <i class="fa-solid fa-filter-circle-xmark"></i>Clear Filters<i
+              class="fa-solid fa-filter-circle-xmark"
+            ></i>
           </button>
         </aside>
         <section class="student-main-content">
@@ -140,46 +140,7 @@
           </div> -->
         </section>
       </section>
-      <!-- <section class="student">
-        <div class="internship-large-card">
-          <img class="card-img" src="https://picsum.photos/id/300/400/250" alt="" />
-          <h4 class="internship-title">Frontend Developer</h4>
-          <div class="card-body">
-            <div class="left-content">
-              <div class="left-first-content">
-                <p class="internship-long-info">
-                  <b>Expectations:</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia
-                  corrupti voluptates blanditiis quidem officia doloribus mollitia alias nulla.
-                </p>
-                <p class="start-date"><b>Start Date:</b> 20.02.2024</p>
-                <p class="end-date"><b>End Date:</b>20.08.2024</p>
-                <p class="remote-onsite"><b>Situation:</b>Onsite</p>
-                <p class="city"><b>City</b>Stockholm</p>
-              </div>
-              <div class="requirements">
-                <b>requirements:</b>
-                <ul id="requirements-list" class="requirements-list">
-                  <li>Css</li>
-                  <li>Css</li>
-                  <li>Css</li>
-                </ul>
-              </div>
-            </div>
-            <div class="right-content">
-              <div class="company-info">
-                <h4>Company Informations</h4>
-                <p class="company-name"><b>Company Name:</b> Blocket</p>
-                <p class="establishment-year"><b>Establishment Year:</b>2005</p>
-                <p class="number-of-employees"><b>Number Of Employees:</b>200</p>
-                <p class="sector"><b>Sector:</b> IT</p>
-                <p class="website"><b>Web Site:</b><a href="#">google.com</a></p>
-              </div>
-            </div>
-          </div>
-          <button class="go-back"><i class="fa-solid fa-angles-left"></i> Back</button>
-          <span class="add-favorite large heart"><i class="fa-solid fa-heart"></i></span>
-        </div>
-      </section> -->
+      <div class="internship-modal"></div>
     </main>
     <!-- Footer area start -->
     <footer>

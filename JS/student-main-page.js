@@ -6,8 +6,107 @@ const getFiltredList2Button = document.querySelector(".get-filtred-list-2");
 const studentMainContent = document.querySelector(".student-main-content");
 const studentSearchCompanyButton = document.querySelector(".student-search-company-button");
 const studentSearchCompanyInput = document.querySelector(".student-search-company-input");
+const internshipModal = document.querySelector(".internship-modal");
+const getFiltredList2 = document.querySelector(".get-filtred-list-2");
+const getFiltredList1 = document.querySelector(".get-filtred-list-1");
+const clearFiltersButton = document.querySelector(".clearFilters");
 
 let updateInternshipsdata = internships;
+let filters = {
+  sector: [],
+  city: [],
+  situation: [],
+};
+
+const renderFilteredList = () => {
+  let filteredList = updateInternshipsdata;
+
+  if (filters.sector.length > 0) {
+    filteredList = filteredList.filter((item) => {
+      return filters.sector.some((secItem) => {
+        return item.companyInfo.sector == secItem;
+      });
+    });
+  }
+  if (filters.city.length > 0) {
+    filteredList = filteredList.filter((item) => {
+      return filters.city.some((secItem) => {
+        return item.city == secItem;
+      });
+    });
+  }
+  if (filters.situation.length > 0) {
+    filteredList = filteredList.filter((item) => {
+      return filters.situation.some((secItem) => {
+        if (secItem == "onsite") {
+          return item.remoteWork == false;
+        } else {
+          return item.remoteWork == true;
+        }
+      });
+    });
+  }
+
+  renderInternshipList(filteredList);
+};
+
+/* filter events */
+getFiltredList2.addEventListener("click", renderFilteredList);
+getFiltredList1.addEventListener("click", renderFilteredList);
+
+// Ortak dinleyici fonksiyon
+const checkboxListener = (event) => {
+  const targetValue = event.target.value;
+  const targetName = event.target.name;
+
+  if (event.target.checked) {
+    // Checkbox is checked, add to filters
+    if (targetName == "sector" && !filters.sector.includes(targetValue)) {
+      filters.sector.push(targetValue);
+    } else if (targetName == "city" && !filters.city.includes(targetValue)) {
+      filters.city.push(targetValue);
+    } else if (targetName == "situation" && !filters.situation.includes(targetValue)) {
+      filters.situation.push(targetValue);
+    }
+  } else {
+    // Checkbox is unchecked, remove from filters
+    if (targetName == "sector") {
+      filters.sector = filters.sector.filter((secItem) => secItem !== targetValue);
+    } else if (targetName == "city") {
+      filters.city = filters.city.filter((cityItem) => cityItem !== targetValue);
+    } else if (targetName == "situation") {
+      filters.situation = filters.situation.filter((sitItem) => sitItem !== targetValue);
+    }
+  }
+};
+
+// Filtreleri temizleme fonksiyonu
+const clearFilters = () => {
+  // Checkbox'ları temizle
+  document.querySelectorAll('input[type="checkbox"]:checked').forEach((checkbox) => {
+    checkbox.checked = false;
+  });
+
+  // Filtreleri sıfırla
+  filters.sector = [];
+  filters.city = [];
+  filters.situation = [];
+
+  renderInternshipList(updateInternshipsdata);
+};
+
+// Filtreleri temizle düğmesine tıklandığında clearFilters fonksiyonunu çağır
+clearFiltersButton.addEventListener("click", clearFilters);
+
+// Ortak sınıfa sahip checkbox'lar için dinleyici atama
+const addEventListenerToCheckbox = () => {
+  const filterCheckbox = document.querySelectorAll(".filter-checkbox");
+
+  filterCheckbox.forEach((checkbox) => {
+    checkbox.addEventListener("change", checkboxListener);
+  });
+};
+
 const renderFilterList = (pInternshipList) => {
   // Create an array to hold all sector names
   const allSectors = [];
@@ -34,7 +133,7 @@ const renderFilterList = (pInternshipList) => {
     .map((sector) => {
       return `
         <div>
-            <input type="checkbox" class="filter-checkbox ${sector}" name="${sector}" value="${sector}" />
+            <input type="checkbox" class="filter-checkbox ${sector}" name="sector" value="${sector}" />
             <label for="${sector}">${sector}</label>
         </div>
         `;
@@ -46,12 +145,14 @@ const renderFilterList = (pInternshipList) => {
     .map((city) => {
       return `
       <div>
-          <input type="checkbox" class="filter-checkbox ${city}" name="${city}" value="${city}" />
+          <input type="checkbox" class="filter-checkbox city-filter ${city}" name="city" value="${city}" />
           <label for="${city}">${city}</label>
       </div>
       `;
     })
     .join("");
+
+  addEventListenerToCheckbox();
 };
 renderFilterList(updateInternshipsdata);
 
@@ -92,17 +193,14 @@ const renderInternshipList = (pInternshipList) => {
   studentMainContent.innerHTML = cardElements;
 };
 
-const getLargeProfile = (pInternshipId) => {
-  console.log(pInternshipId);
-  console.log(addFavorite);
-};
-
 renderInternshipList(updateInternshipsdata);
 
 // This function added internship to student's favorite list (for now just fake)
 const internshipAddedFavorite = (pInternshipId) => {
   const addFavorite = document.querySelector(`.add-favorite-${pInternshipId}`);
+  const addFavoriteOnLargeCard = document.querySelector(`#add-favorite-${pInternshipId}`);
   addFavorite.classList.toggle("added-favorite");
+  addFavoriteOnLargeCard.classList.toggle("added-favorite");
 };
 
 // When user write anything in the search input, This function work and get
@@ -135,8 +233,9 @@ const getInternshipLargeInfo = (pInternshipId) => {
   const targetInternship = updateInternshipsdata.find(
     (internship) => internship.id == pInternshipId
   );
-
-  studentMainContent.innerHTML = `
+  internshipModal.classList.add("open-modal");
+  //   studentMainContent.innerHTML
+  internshipModal.innerHTML = `
       <div class="internship-large-card">
             <img class="card-img" src="${
               targetInternship.largeImage ? targetInternship.largeImage : "../Image/largeImg"
@@ -155,12 +254,7 @@ const getInternshipLargeInfo = (pInternshipId) => {
                   }</p>
                   <p class="city"><b>City</b> ${targetInternship.city}</p>
                 </div>
-                <div class="requirements">
-                  <b>requirements:</b>
-                  <ul id="requirements-list" class="requirements-list">
-                  ${targetInternship.requirements.map((item) => `<li>${item}</li>`).join("")}
-                  </ul>
-                </div>
+                
               </div>
               <div class="right-content">
                 <div class="company-info">
@@ -178,27 +272,25 @@ const getInternshipLargeInfo = (pInternshipId) => {
                   }</a></p>
                 </div>
               </div>
-            </div>
-            <button onclick="goBack()" class="go-back"><i class="fa-solid fa-angles-left"></i> Back</button>
-            <span onclick="internshipAddedFavorite(${targetInternship.id})"  class="add-favorite-${
+              </div>
+              <div class="requirements">
+                  <b>requirements:</b>
+                  <ul id="requirements-list" class="requirements-list">
+                  ${targetInternship.requirements.map((item) => `<li>${item}</li>`).join("")}
+                  </ul>
+                </div>
+            <button onclick="goBack()" class="go-back"><i class="fa-solid fa-angles-left"></i> Close</button>
+            <span onclick="internshipAddedFavorite(${
+              targetInternship.id
+            })" class="large heart"  id="add-favorite-${
     targetInternship.id
-  } large heart "><i class="fa-solid fa-heart"></i></span>
+  }"><i class="fa-solid fa-heart"></i></span>
           </div>
       `;
 };
 
 const goBack = () => {
-  renderInternshipList(updateInternshipsdata);
+  //   renderInternshipList(updateInternshipsdata);
+  internshipModal.classList.remove("open-modal");
 };
-
-/* filter events */
-
-// Ortak dinleyici fonksiyon
-function checkboxListener(event) {
-  console.log("Checkbox değeri: ", event.target.value);
-}
-
-// Ortak sınıfa sahip checkbox'lar için dinleyici atama
-commonCheckboxes.forEach(function (checkbox) {
-  checkbox.addEventListener("change", checkboxListener);
-});
+internshipModal.addEventListener("click", goBack);
