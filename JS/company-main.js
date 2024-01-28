@@ -31,12 +31,23 @@ const getLocationFilter = () => {
     if(cityList.length !== 0){
         $('.filter-container').append('<p class="filter-title">Locations</p><ul class="filter-list" id="locations"></ul>');
         cityList.forEach(element => {
-            $('#locations').append(` <li class="filter-item"><label>
-                <input type="radio" value="${element}" id="${element}"> 
+            $('#locations').append(` <li class="filter-item">
+            <label for="${element}">
+                <input type="radio" value="${element}" id="${element}" onchange="handleRadioChange(this)"> 
             </label>
             ${element}
             </li>`);
         });
+    }
+}
+
+const handleRadioChange = (radio) => {
+    if(radio.checked) {
+        console.log(`radion: ${radio.value} is checked`);
+
+
+    } else {
+        console.log(`radion: ${radio.value} is unchecked`);
     }
 }
 
