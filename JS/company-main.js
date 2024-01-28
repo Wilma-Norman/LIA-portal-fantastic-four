@@ -1,5 +1,8 @@
+let filteredData = [];
+
 const createMainPageContent = () => {
     for (const student of students) {
+        console.log(student)
         $('.main-content').append(`
             <div class="small-profile">
                 <a href="company-profile.html?id=${student.id}"></a>
@@ -16,8 +19,21 @@ const createMainPageContent = () => {
 const createFilterContent = () => {
     getLocationFilter()
     getEducationFilter()
-    getEducationFilter()
+}
 
+const convertString = (String) => {
+    let newString;
+    return newString = String.replace(/ /g, '_');
+}
+
+const handleRadioChange = (filterParam) => {
+    if(filterParam.checked) {
+        filteredData.push(filterParam)
+        console.log(`radion: ${filterParam.value} is checked`);
+    } else {
+        console.log(`radion: ${filterParam.value} is unchecked`);
+    }
+    console.log(filterParam)
 }
 
 const getLocationFilter = () => {
@@ -33,21 +49,11 @@ const getLocationFilter = () => {
         cityList.forEach(element => {
             $('#locations').append(` <li class="filter-item">
             <label for="${element}">
-                <input type="radio" value="${element}" id="${element}" onchange="handleRadioChange(this)"> 
+                <input type="checkbox" value="${element}" id="${element}" onchange="handleRadioChange(this)"> 
             </label>
             ${element}
             </li>`);
         });
-    }
-}
-
-const handleRadioChange = (radio) => {
-    if(radio.checked) {
-        console.log(`radion: ${radio.value} is checked`);
-
-
-    } else {
-        console.log(`radion: ${radio.value} is unchecked`);
     }
 }
 
@@ -64,7 +70,7 @@ const getEducationFilter = () => {
         educationList.forEach(element => {
             $('#educations').append(` <li class="filter-item">
             <label>
-                <input type="radio" value="${element}" id="${element}"> 
+                <input type="checkbox" value="${element}" id="${element}"> 
             </label>
             ${element}
             </li>`);
