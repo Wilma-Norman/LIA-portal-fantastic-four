@@ -263,7 +263,7 @@
   background-color: var(--primary);
   color: #fff;
 }
-.add-favorite.large {
+.heart.large {
   font-size: 2rem;
   position: absolute;
   right: 5px;

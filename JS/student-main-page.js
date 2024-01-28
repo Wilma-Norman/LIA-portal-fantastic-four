@@ -29,9 +29,6 @@ const renderFilterList = (pInternshipList) => {
     }
   });
 
-  console.log(allSectors);
-  console.log(allCities);
-
   // Render the results to the console
   filterWithSector.innerHTML += allSectors
     .map((sector) => {
@@ -63,7 +60,9 @@ const renderInternshipList = (pInternshipList) => {
     .map((internship) => {
       return `
             <div class="internship-small-card">
-                <img class="card-img" src="${internship.smallImage}" alt="" />
+                <img class="card-img" src="${
+                  internship.smallImage ? internship.smallImage : "../Image/smallImg"
+                }" alt="" />
                 <div class="card-body">
                     <h4 class="internship-title">${internship.title}</h4>
                     <p class="internship-short-info">
@@ -78,7 +77,7 @@ const renderInternshipList = (pInternshipList) => {
         internship.endDate
       }</p>
                         <button onclick="
-                          getLargeProfile(
+                        getInternshipLargeInfo(
                             ${internship.id}
                           )" class="get-long-info">View Internship</button>
                     </div>
@@ -131,3 +130,64 @@ studentSearchCompanyInput.addEventListener("input", () => {
     getSearchedList(updateInternshipsdata);
   }
 });
+
+const getInternshipLargeInfo = (pInternshipId) => {
+  const targetInternship = updateInternshipsdata.find(
+    (internship) => internship.id == pInternshipId
+  );
+  console.log(targetInternship);
+  console.log("seeelamtargetInternship");
+  studentMainContent.innerHTML = `
+      <div class="internship-large-card">
+            <img class="card-img" src="${
+              targetInternship.largeImage ? targetInternship.largeImage : "../Image/largeImg"
+            }" alt="" />
+            <h4 class="internship-title">${targetInternship.title}</h4>
+            <div class="card-body">
+              <div class="left-content">
+                <div class="left-first-content">
+                  <p class="internship-long-info">
+                    <b>Expectations:</b> ${targetInternship.expectations}
+                  </p>
+                  <p class="start-date"><b>Start Date:</b> ${targetInternship.startDate}</p>
+                  <p class="end-date"><b>End Date:</b> ${targetInternship.endDate}</p>
+                  <p class="remote-onsite"><b>Situation:</b> ${
+                    targetInternship.remoteWork ? "Remote" : "Onsite"
+                  }</p>
+                  <p class="city"><b>City</b> ${targetInternship.city}</p>
+                </div>
+                <div class="requirements">
+                  <b>requirements:</b>
+                  <ul id="requirements-list" class="requirements-list">
+                  ${targetInternship.requirements.map((item) => `<li>${item}</li>`).join("")}
+                  </ul>
+                </div>
+              </div>
+              <div class="right-content">
+                <div class="company-info">
+                  <h4>Company Informations</h4>
+                  <p class="company-name"><b>Company Name:</b> ${targetInternship.companyName}</p>
+                  <p class="establishment-year"><b>Establishment Year:</b> ${
+                    targetInternship.companyInfo.establishmentYear
+                  }</p>
+                  <p class="number-of-employees"><b>Number Of Employees:</b> ${
+                    targetInternship.companyInfo.numberOfEmployees
+                  }</p>
+                  <p class="sector"><b>Sector:</b> ${targetInternship.companyInfo.sector}</p>
+                  <p class="website"><b>Web Site:</b><a href="#"> ${
+                    targetInternship.companyInfo.website
+                  }</a></p>
+                </div>
+              </div>
+            </div>
+            <button onclick="goBack()" class="go-back"><i class="fa-solid fa-angles-left"></i> Back</button>
+            <span onclick="internshipAddedFavorite(${targetInternship.id})"  class="add-favorite-${
+    targetInternship.id
+  } large heart "><i class="fa-solid fa-heart"></i></span>
+          </div>
+      `;
+};
+
+const goBack = () => {
+  renderInternshipList(updateInternshipsdata);
+};
