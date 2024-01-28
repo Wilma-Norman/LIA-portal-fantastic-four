@@ -13,16 +13,16 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="../Css/company-profile.css" />
-    <link rel="stylesheet" href="../Css/student-profile.css" />
     <link rel="stylesheet" href="../Css/global.css" />
     <link rel="stylesheet" href="../Css/footer.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
+    <script src="../JS/data.js" defer></script>
     <script src="../JS/company-profile.js" defer></script>
   </head>
   <body>
     <header>
       <div class="wraper">
-        <h1 class="main-header">Company Profile</h1>
+        <h1 class="main-header">Student Profiles</h1>
         <div class="burger">
           <span></span>
           <span></span>
@@ -40,82 +40,68 @@
       </div>
     </header>
     <div class="profile-main-content flex-column-center">
-      <a class="temp-button left" id="return-button">return icon</a>
-      <div class="profile-wrapper">
-        <a class="temp-button right" id="settings-button">settings cog</a>
-        <div class="profile-card-wrapper">
-          <div class="profile-card">
-            <div class="profile-summary flex-column-center">
-              <img src="../Image/temp-avatar-icon.png" alt="profile icon" />
-              <p>User Name</p>
-              <div class="temp-link">
-                <div class="temp-icon"></div>
-                username@email.com
+        <a class="utility-button utility-button-left" id="return-button"><< Back</a>
+        <div class="profile-wrapper">
+            <!-- <a class="utility-button utility-button-right" id="settings-button">settings cog</a>  i dont know it should be here-->
+            <div class="profile-card-wrapper">
+                <div class="profile-card">
+                    <div class="profile-summary flex-column-center">
+                        <img id="profile-image" src="../Image/temp-avatar-icon.png" alt="profile icon"> 
+                    <div class="profile-summary-wrapper">
+                        <p class="student-name">John Doe</p>
+                        <div class="project-link">
+                            <div class="link-icon"></div> 
+                            <p class="student-email">JohnDoe@Email.com</p>
+                        </div>
+                        <div class="project-link">
+                            <div class="link-icon"></div> 
+                            <p class="student-linkedIn">JohnDoe.linkedIn.com</p>
+                            </div>  
+                        </div>
+                    </div>
+                    <div class="profile-bio">
+                        <p class="title">Background</p>
+
+                        <p id="bio-text">Right now the fake link is absolutely positioned in the bottom right but i think a grid might work aswell, just put the link in the bottom right grid area and the rest can be text.</p>
+                        <div class="expand-button">See more <!-- write js to actually make it expand -->
+                        </div>
+                    </div>
+                </div>
+                <div class="link-container" id="project-container">
+                    <p class="title">Projects</p>
               </div>
-              <div class="temp-link">
-                <div class="temp-icon"></div>
-                linkedin.com/username
-              </div>
+                <div class="link-container" id="resume-container">
+                  <p class="title">Resume</p>
+                </div>
             </div>
-            <div class="profile-bio">
-              <p class="title">Background</p>
-              <p>
-                Right now the fake link is absolutely positioned in the bottom right but i think a
-                grid might work aswell, just put the link in the bottom right grid area and the rest
-                can be text.
-              </p>
-              <div class="fake-link">fake link</div>
+            <div class="divider-container">
+                <div class="divider"></div>
+            </div>  
+            <div class="container-text"> 
+                <p class="title">What am i looking for?</p>
+                <!-- needs to be generated -->
+                <div class="project-link">
+                    <div class="link-icon"></div> sample text
+                </div>
+                <div class="project-link">
+                    <div class="link-icon"></div> sample text
+                </div>
+                <div class="project-link">
+                    <div class="link-icon"></div> sample text
+                </div>
+                <p class="title">What am i offering!</p>
+                <!-- needs to be generated -->
+                <div class="project-link">
+                    <div class="link-icon"></div> sample text
+                </div>
+                <div class="project-link">
+                    <div class="link-icon"></div> sample text
+                </div>
+                <div class="project-link">
+                    <div class="link-icon"></div> sample text
+                </div>
             </div>
-          </div>
-          <div class="link-container">
-            <!-- temp code until we generate it with js -->
-            <div class="temp-link">
-              <div class="temp-icon"></div>
-              linkety unn
-            </div>
-            <div class="temp-link">
-              <div class="temp-icon"></div>
-              linkety tuu
-            </div>
-            <div class="temp-link">
-              <div class="temp-icon"></div>
-              linkety dree
-            </div>
-          </div>
         </div>
-        <div class="bob">
-          <div class="rob"></div>
-        </div>
-        <div class="container-text">
-          <!-- temp code until we generate it with js -->
-          <p class="title">Larger text</p>
-          <div class="temp-link">
-            <div class="temp-icon"></div>
-            sample text
-          </div>
-          <div class="temp-link">
-            <div class="temp-icon"></div>
-            sample text
-          </div>
-          <div class="temp-link">
-            <div class="temp-icon"></div>
-            sample text
-          </div>
-          <p class="title">Larger text</p>
-          <div class="temp-link">
-            <div class="temp-icon"></div>
-            sample text
-          </div>
-          <div class="temp-link">
-            <div class="temp-icon"></div>
-            sample text
-          </div>
-          <div class="temp-link">
-            <div class="temp-icon"></div>
-            sample text
-          </div>
-        </div>
-      </div>
     </div>
     <!-- Footer area start -->
     <footer>
