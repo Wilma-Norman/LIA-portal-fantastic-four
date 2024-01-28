@@ -17,8 +17,8 @@
     <link rel="stylesheet" href="../Css/student-main-page.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
     <script src="../JS/student-main-page.js" defer></script>
-    <script src="../JS/data.js" defer></script>
-    <script src="../JS/data-company.js" defer></script>
+    <!-- <script src="../JS/data.js" defer></script> -->
+    <!-- <script src="../JS/data-company.js" defer></script> -->
   </head>
   <body>
     <header>
@@ -43,9 +43,11 @@
     <main class="student-main-container">
       <h2>Search for an internship</h2>
       <section class="searchbar-container">
-        <button class="student-search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <button class="student-search-company-button">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
         <input
-          class="student-search-input"
+          class="student-search-company-input"
           type="text"
           placeholder="write a job title or company name"
         />
@@ -53,49 +55,55 @@
       <section class="student-sidebar-and-main-content-container">
         <aside class="student-sidebar">
           <h3 class="filter-title">Filters <i class="fa-solid fa-filter"></i></h3>
-          <div class="filter-with-title">
-            <div>
+          <button class="get-filtred-list-1">
+            Get filtered list <i class="fa-solid fa-list-check"></i>
+          </button>
+          <div class="filter-with-sector">
+            <h4 class="filter-sector-title title">Sectors</h4>
+            <!-- <div>
               <input type="checkbox" id="fullstack" name="interest" value="fullstack" />
               <label for="music">Frontend</label>
-            </div>
-            <div>
-              <input type="checkbox" id="fullstack" name="interest" value="fullstack" />
-              <label for="music">Fullstack</label>
-            </div>
+            </div> -->
           </div>
-          <div class="filter-with-company">
-            <div>
+          <div class="filter-with-city">
+            <h4 class="filter-city-title title">Cities</h4>
+            <!-- <div>
               <input type="checkbox" id="fullstack" name="interest" value="fullstack" />
-              <label for="music">Frontend</label>
-            </div>
-            <div>
-              <input type="checkbox" id="fullstack" name="interest" value="fullstack" />
-              <label for="music">Fullstack</label>
-            </div>
+              <label for="music">Remote</label>
+            </div> -->
           </div>
           <div class="filter-with-situation">
+            <h4 class="filter-situation-title title">Situation</h4>
             <div>
-              <input type="checkbox" id="fullstack" name="interest" value="fullstack" />
-              <label for="music">Frontend</label>
+              <input type="checkbox" id="fullstack" name="interest" value="Remote" />
+              <label for="music">Remote</label>
             </div>
             <div>
-              <input type="checkbox" id="fullstack" name="interest" value="fullstack" />
-              <label for="music">Fullstack</label>
-            </div>
-          </div>
-          <div class="filter-with-place">
-            <div>
-              <input type="checkbox" id="fullstack" name="interest" value="fullstack" />
-              <label for="music">Frontend</label>
-            </div>
-            <div>
-              <input type="checkbox" id="fullstack" name="interest" value="fullstack" />
-              <label for="music">Fullstack</label>
+              <input type="checkbox" id="fullstack" name="interest" value="Onsite" />
+              <label for="music">Onsite</label>
             </div>
           </div>
+          <div class="filter-with-date">
+            <h4 class="filter-date-title title">Starting Date</h4>
+            <div>
+              <input type="checkbox" id="fullstack" name="interest" value="aMonth" />
+              <label for="music">In a month</label>
+            </div>
+            <div>
+              <input type="checkbox" id="fullstack" name="interest" value="threeMonth" />
+              <label for="music">In three month</label>
+            </div>
+            <div>
+              <input type="checkbox" id="fullstack" name="interest" value="afterThreeMonth" />
+              <label for="music">After three month</label>
+            </div>
+          </div>
+          <button class="get-filtred-list-2">
+            Get filtered list <i class="fa-solid fa-list-check"></i>
+          </button>
         </aside>
         <section class="student-main-content">
-          <div class="internship-small-card">
+          <!-- <div class="internship-small-card">
             <img class="card-img" src="../Image/blocket_logo.png" alt="" />
             <div class="card-body">
               <h4 class="internship-title">Frontend Developer</h4>
@@ -103,12 +111,55 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia corrupti voluptates
                 blanditiis quidem officia doloribus mollitia alias nulla.
               </p>
-              <p class="internship-date">20.02.2024 - 20.08.2024</p>
-              <button class="get-long-info">View Internship</button>
+              <div class="date-and-button">
+                <p class="internship-date">20.02.2024 - 20.08.2024</p>
+                <button class="get-long-info">View Internship</button>
+              </div>
             </div>
-          </div>
+            <span class="add-favorite heart"><i class="fa-solid fa-heart"></i></span>
+          </div> -->
         </section>
       </section>
+      <!-- <section class="student">
+        <div class="internship-large-card">
+          <img class="card-img" src="https://picsum.photos/id/300/400/250" alt="" />
+          <h4 class="internship-title">Frontend Developer</h4>
+          <div class="card-body">
+            <div class="left-content">
+              <div class="left-first-content">
+                <p class="internship-long-info">
+                  <b>Expectations:</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia
+                  corrupti voluptates blanditiis quidem officia doloribus mollitia alias nulla.
+                </p>
+                <p class="start-date"><b>Start Date:</b> 20.02.2024</p>
+                <p class="end-date"><b>End Date:</b>20.08.2024</p>
+                <p class="remote-onsite"><b>Situation:</b>Onsite</p>
+                <p class="city"><b>City</b>Stockholm</p>
+              </div>
+              <div class="requirements">
+                <b>requirements:</b>
+                <ul id="requirements-list" class="requirements-list">
+                  <li>Css</li>
+                  <li>Css</li>
+                  <li>Css</li>
+                </ul>
+              </div>
+            </div>
+            <div class="right-content">
+              <div class="company-info">
+                <h4>Company Informations</h4>
+                <p class="company-name"><b>Company Name:</b> Blocket</p>
+                <p class="establishment-year"><b>Establishment Year:</b>2005</p>
+                <p class="number-of-employees"><b>Number Of Employees:</b>200</p>
+                <p class="sector"><b>Sector:</b> IT</p>
+                <p class="website"><b>Web Site:</b><a href="#">google.com</a></p>
+              </div>
+            </div>
+          </div>
+          <button class="go-back"><i class="fa-solid fa-angles-left"></i> Back</button>
+          <span class="add-favorite large heart"><i class="fa-solid fa-heart"></i></span>
+        </div>
+      </section> -->
     </main>
     <!-- Footer area start -->
     <footer>
@@ -137,5 +188,6 @@
       </div>
     </footer>
     <!-- Footer area end -->
+    <script src="../JS/testData.js"></script>
   </body>
 </html>
