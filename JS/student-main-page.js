@@ -1,26 +1,30 @@
 /* DOM elements */
-const filterWithSector = document.querySelector(".filter-with-sector");
-const filterWithCity = document.querySelector(".filter-with-city");
-const getFiltredList1Button = document.querySelector(".get-filtred-list-1");
-const getFiltredList2Button = document.querySelector(".get-filtred-list-2");
-const studentMainContent = document.querySelector(".student-main-content");
-const studentSearchCompanyButton = document.querySelector(".student-search-company-button");
-const studentSearchCompanyInput = document.querySelector(".student-search-company-input");
-const internshipModal = document.querySelector(".internship-modal");
-const getFiltredList2 = document.querySelector(".get-filtred-list-2");
-const getFiltredList1 = document.querySelector(".get-filtred-list-1");
-const clearFiltersButton = document.querySelector(".clearFilters");
+// Selecting various DOM elements using querySelector
+const filterWithSector = document.querySelector(".filter-with-sector"); // Container for sector filters
+const filterWithCity = document.querySelector(".filter-with-city"); // Container for city filters
+const getFiltredList1Button = document.querySelector(".get-filtred-list-1"); // Button to apply filters 1
+const getFiltredList2Button = document.querySelector(".get-filtred-list-2"); // Button to apply filters 2
+const studentMainContent = document.querySelector(".student-main-content"); // Container for displaying internship cards
+const studentSearchCompanyButton = document.querySelector(".student-search-company-button"); // Search button
+const studentSearchCompanyInput = document.querySelector(".student-search-company-input"); // Search input
+const internshipModal = document.querySelector(".internship-modal"); // Modal for displaying detailed internship information
+const getFiltredList2 = document.querySelector(".get-filtred-list-2"); // Additional button to apply filters
+const getFiltredList1 = document.querySelector(".get-filtred-list-1"); // Additional button to apply filters
+const clearFiltersButton = document.querySelector(".clearFilters"); // Button to clear applied filters
 
-let updateInternshipsdata = internships;
+// Data and filter variables
+let updateInternshipsdata = internships; // Initial internship data
 let filters = {
-  sector: [],
-  city: [],
-  situation: [],
+  sector: [], // Array to store selected sectors for filtering
+  city: [], // Array to store selected cities for filtering
+  situation: [], // Array to store selected situations for filtering (onsite or remote)
 };
 
+// Function to render the filtered internship list based on applied filters
 const renderFilteredList = () => {
   let filteredList = updateInternshipsdata;
 
+  // Apply sector filter
   if (filters.sector.length > 0) {
     filteredList = filteredList.filter((item) => {
       return filters.sector.some((secItem) => {
@@ -28,6 +32,8 @@ const renderFilteredList = () => {
       });
     });
   }
+
+  // Apply city filter
   if (filters.city.length > 0) {
     filteredList = filteredList.filter((item) => {
       return filters.city.some((secItem) => {
@@ -35,6 +41,8 @@ const renderFilteredList = () => {
       });
     });
   }
+
+  // Apply situation filter (onsite or remote)
   if (filters.situation.length > 0) {
     filteredList = filteredList.filter((item) => {
       return filters.situation.some((secItem) => {
@@ -47,20 +55,21 @@ const renderFilteredList = () => {
     });
   }
 
+  // Render the filtered list
   renderInternshipList(filteredList);
 };
 
-/* filter events */
+/* Filter events */
 getFiltredList2.addEventListener("click", renderFilteredList);
 getFiltredList1.addEventListener("click", renderFilteredList);
 
-// Ortak dinleyici fonksiyon
+// Common listener function for checkboxes
 const checkboxListener = (event) => {
   const targetValue = event.target.value;
   const targetName = event.target.name;
 
+  // Check if checkbox is checked, then add to filters
   if (event.target.checked) {
-    // Checkbox is checked, add to filters
     if (targetName == "sector" && !filters.sector.includes(targetValue)) {
       filters.sector.push(targetValue);
     } else if (targetName == "city" && !filters.city.includes(targetValue)) {
@@ -69,7 +78,7 @@ const checkboxListener = (event) => {
       filters.situation.push(targetValue);
     }
   } else {
-    // Checkbox is unchecked, remove from filters
+    // If unchecked, remove from filters
     if (targetName == "sector") {
       filters.sector = filters.sector.filter((secItem) => secItem !== targetValue);
     } else if (targetName == "city") {
@@ -80,55 +89,56 @@ const checkboxListener = (event) => {
   }
 };
 
-// Filtreleri temizleme fonksiyonu
+// Function to clear all applied filters
 const clearFilters = () => {
-  // Checkbox'ları temizle
+  // Uncheck all checkboxes
   document.querySelectorAll('input[type="checkbox"]:checked').forEach((checkbox) => {
     checkbox.checked = false;
   });
 
-  // Filtreleri sıfırla
+  // Reset filters
   filters.sector = [];
   filters.city = [];
   filters.situation = [];
 
+  // Render the full internship list
   renderInternshipList(updateInternshipsdata);
 };
 
-// Filtreleri temizle düğmesine tıklandığında clearFilters fonksiyonunu çağır
+// Attach clearFilters function to clearFiltersButton click event
 clearFiltersButton.addEventListener("click", clearFilters);
 
-// Ortak sınıfa sahip checkbox'lar için dinleyici atama
+// Add checkbox change event listener to checkboxes with class "filter-checkbox"
 const addEventListenerToCheckbox = () => {
   const filterCheckbox = document.querySelectorAll(".filter-checkbox");
-
   filterCheckbox.forEach((checkbox) => {
     checkbox.addEventListener("change", checkboxListener);
   });
 };
 
+// Function to render filter options based on the internship list
 const renderFilterList = (pInternshipList) => {
-  // Create an array to hold all sector names
+  // Arrays to hold unique sector and city names
   const allSectors = [];
   const allCities = [];
 
   // Iterate over each internship object
   pInternshipList.forEach((internship) => {
-    // Get the sector name of the internship
+    // Get sector and city names
     const sector = internship.companyInfo.sector;
     const city = internship.city;
 
-    // If the sector name is not already in the allSectors array, add it
+    // Add unique sector names to allSectors array
     if (!allSectors.includes(sector)) {
       allSectors.push(sector);
     }
-    // If the city name is not already in the allSectors array, add it
+    // Add unique city names to allCities array
     if (!allCities.includes(city)) {
       allCities.push(city);
     }
   });
 
-  // Render the results to the console
+  // Render sector filter options
   filterWithSector.innerHTML += allSectors
     .map((sector) => {
       return `
@@ -140,7 +150,7 @@ const renderFilterList = (pInternshipList) => {
     })
     .join("");
 
-  // Render the results to the console
+  // Render city filter options
   filterWithCity.innerHTML += allCities
     .map((city) => {
       return `
@@ -152,10 +162,14 @@ const renderFilterList = (pInternshipList) => {
     })
     .join("");
 
+  // Add event listener to checkboxes
   addEventListenerToCheckbox();
 };
+
+// Render filter options based on initial internship data
 renderFilterList(updateInternshipsdata);
 
+// Function to render the list of internships based on the provided list
 const renderInternshipList = (pInternshipList) => {
   const cardElements = pInternshipList
     .map((internship) => {
@@ -166,7 +180,9 @@ const renderInternshipList = (pInternshipList) => {
                 }" alt="" />
                 <div class="card-body">
                     <h4 class="internship-title">${internship.title}</h4>
-                    <p class="internship-short-info">
+                    <p class="intern
+
+ship-short-info">
                         ${
                           internship.expectations.length <= 150
                             ? internship.expectations
@@ -193,9 +209,10 @@ const renderInternshipList = (pInternshipList) => {
   studentMainContent.innerHTML = cardElements;
 };
 
+// Render initial internship list
 renderInternshipList(updateInternshipsdata);
 
-// This function added internship to student's favorite list (for now just fake)
+// Function to add internship to the student's favorite list
 const internshipAddedFavorite = (pInternshipId) => {
   const addFavorite = document.querySelector(`.add-favorite-${pInternshipId}`);
   const addFavoriteOnLargeCard = document.querySelector(`#add-favorite-${pInternshipId}`);
@@ -203,17 +220,17 @@ const internshipAddedFavorite = (pInternshipId) => {
   addFavoriteOnLargeCard.classList.toggle("added-favorite");
 };
 
-// When user write anything in the search input, This function work and get
-// a new internship list for rendering. If there isn't internship, it give a message.
+// Function to get a new internship list based on user's search input
 const getSearchedList = (pInternshipList) => {
   const targetWord = studentSearchCompanyInput.value;
-  console.log("calisti");
   const searchTerm = targetWord.toLowerCase();
 
-  // Filter process
+  // Filter internships based on search term
   const filteredInternships = pInternshipList.filter((internship) =>
     internship.title.toLowerCase().includes(searchTerm)
   );
+
+  // Render the filtered list or display a message if no internships found
   if (filteredInternships.length > 0) {
     renderInternshipList(filteredInternships);
   } else {
@@ -221,7 +238,9 @@ const getSearchedList = (pInternshipList) => {
   }
 };
 
+// Attach input event listener to search input
 studentSearchCompanyInput.addEventListener("input", () => {
+  // If search input is empty, render the full internship list; otherwise, get searched list
   if (studentSearchCompanyInput.value == "") {
     renderInternshipList(updateInternshipsdata);
   } else {
@@ -229,12 +248,15 @@ studentSearchCompanyInput.addEventListener("input", () => {
   }
 });
 
+// Function to get and display detailed information about a specific internship
 const getInternshipLargeInfo = (pInternshipId) => {
+  // Find the internship with the given id
   const targetInternship = updateInternshipsdata.find(
     (internship) => internship.id == pInternshipId
   );
+
+  // Open the internship modal and populate it with detailed information
   internshipModal.classList.add("open-modal");
-  //   studentMainContent.innerHTML
   internshipModal.innerHTML = `
       <div class="internship-large-card">
             <img class="card-img" src="${
@@ -289,8 +311,16 @@ const getInternshipLargeInfo = (pInternshipId) => {
       `;
 };
 
+// Function to close the internship modal
 const goBack = () => {
-  //   renderInternshipList(updateInternshipsdata);
   internshipModal.classList.remove("open-modal");
 };
-internshipModal.addEventListener("click", goBack);
+
+// Attach click event listener to the internship modal to close it
+window.onclick = function (event) {
+  if (event.target == internshipModal) {
+    goBack();
+  }
+};
+
+console.log("hersey yolunda");
