@@ -1,6 +1,6 @@
 .student-profile-container {
   width: 93vw;
-  height: 100vh;
+  min-height: 90vh;
   margin: 0 auto;
   display: flex;
   flex-direction: column-reverse;
@@ -76,6 +76,12 @@
     text-decoration: none;
   }
 }
+.student-cv a {
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border: 1px solid #9b9a9a;
+  padding: 4px;
+}
 
 .student-projects {
   padding-left: 8px;
@@ -106,5 +112,41 @@
     .skill {
       padding: 4px 0;
     }
+  }
+}
+
+/* Responsive */
+@media screen and (max-width: 786px) {
+  .student-profile-container .student-profile {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+  }
+  .student-skills-contaiiner {
+    margin-bottom: 30px;
+  }
+  .student-profile-left-content {
+    width: 100%;
+  }
+  .student-profile-left-content > div {
+    margin-bottom: 20px;
+  }
+  .student-profile-right-content {
+    width: 100%;
+    flex-direction: row;
+    padding: 0;
+    margin-top: 10px;
+    justify-content: space-between;
+  }
+  .student-profile-container .midle-line {
+    width: 90%;
+    height: 3px;
+    border: 2px solid var(--primary);
+  }
+}
+@media screen and (max-width: 486px) {
+  .student-short-info,
+  .student-profile-right-content {
+    font-size: 0.8rem;
   }
 }

@@ -11,6 +11,24 @@ const internshipModal = document.querySelector(".internship-modal"); // Modal fo
 const getFiltredList2 = document.querySelector(".get-filtred-list-2"); // Additional button to apply filters
 const getFiltredList1 = document.querySelector(".get-filtred-list-1"); // Additional button to apply filters
 const clearFiltersButton = document.querySelector(".clearFilters"); // Button to clear applied filters
+const mobliFilterIconContainer = document.querySelector(".hamburder-filter-icon");
+const mobilderFilterIcon = document.querySelectorAll(".hamburder-filter-icon i");
+
+mobliFilterIconContainer.addEventListener("click", () => {
+  const studentSidebar = document.querySelector(".student-sidebar");
+
+  studentSidebar.classList.toggle("added-d-none");
+
+  mobilderFilterIcon.forEach((item) => {
+    if (item.classList.contains("fa-caret-down")) {
+      item.classList.remove("fa-caret-down");
+      item.classList.add("fa-caret-up");
+    } else {
+      item.classList.remove("fa-caret-up");
+      item.classList.add("fa-caret-down");
+    }
+  });
+});
 
 // Data and filter variables
 let updateInternshipsdata = internships; // Initial internship data

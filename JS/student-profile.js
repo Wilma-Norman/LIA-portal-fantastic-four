@@ -48,7 +48,7 @@ const renderStudentProfile = () => {
     </div>
     <div class="student-cv">
       <h4>My CV</h4>
-      <a href="#"><i class="fa-regular fa-file-pdf"></i> > Download CV</a>
+      <a href="#"><i class="fa-regular fa-file-pdf"></i> Download CV</a>
     </div>
   </div>
   <div class="midle-line"></div>
