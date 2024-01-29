@@ -65,8 +65,9 @@
   background-color: var(--primary-light);
   color: #fff;
   padding: 12px;
-  min-width: 250px;
+  width: 100%;
   border-radius: 8px;
+
   h4 {
     margin-bottom: 10px;
   }
