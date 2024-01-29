@@ -37,7 +37,6 @@ const createMainPageContent = () => {
     }
 }
 
-
 /*
 This function is a bit more complex, the first thing it does is to empty the main content area of the
 webpage to prepare it to display a filtered set of profiles. 
@@ -138,6 +137,14 @@ const getFilteredContentList = () => {
     filter-container in the webpage, it is here the handleRadioChange() method is assigned to the checkboxes and it
     is here where they get all their information. the first part of the function is to gather the information and 
     the second part is responisble for generating the actual html content on the page. 
+
+    the function takes the location of every student object in the array students and creates an object that stores
+    two pieces of information, (value: student.location) AND (dataType: 'location') why it does this is to help other
+    functions later. The function .some() works by taking a function or some code that works as a condition for 
+    the comparison in the array. basically that method checks each item in the list with the condition. 
+    for example is the number in the array higher than 10? if yes return true if no return false. --> 
+    array with [7, 13, 25, 2, 3, 6] would return with the condition array[index] <  10 (less than 10)
+    true, false, false, true, true, true, and that is how i look for unique values for the filters.
 */
 const getLocationFilter = () => {
     let cityList = [];
@@ -194,6 +201,16 @@ const getEducationFilter = () => {
         });
     }
 }
+
+$(".search-button").click(() => {// add check if screen width is changed and remove the classses if it gets over 900
+    if($(window).width() < 900){
+        $('.main-content-container, .search-bar-container').toggleClass('mobile-filter-anchor');
+        $('.filter-container').toggleClass('visible-filter');
+        $('.search-input').toggleClass('visible-mobile-search');
+        $('#return-button').toggleClass('hidden');
+        $('#search-icon').attr('src', ($('#search-icon').attr('src').endsWith('search.svg') ? '../Image/close.svg' : '../Image/search.svg'));
+    }
+})
 
 /*
     these functions are responsible for the initial setup for the main page content.
