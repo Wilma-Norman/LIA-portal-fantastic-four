@@ -146,7 +146,7 @@ const getLocationFilter = () => {
             value: student.location,
             dataType: 'location'
         }
-        if(!cityList.includes(cityListObj.location)){
+        if(!cityList.some(obj => obj.value === cityListObj.value)){
             cityList.push(cityListObj)
         }
     }
@@ -176,7 +176,7 @@ const getEducationFilter = () => {
             value: student.education,
             dataType: 'education'
         }
-        if(!educationList.includes(educationListObj.value)){
+        if(!educationList.some(obj => obj.value === educationListObj.value)){
             educationList.push(educationListObj);
         }
     }
