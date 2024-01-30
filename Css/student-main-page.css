@@ -39,12 +39,7 @@ body {
     color: #fff;
     text-align: center;
     font-size: 24px;
-    /* cursor: pointer; */
   }
-  /* .student-search-button:hover {
-    background-color: var(--primary);
-    border: 2px solid var(--white);
-  } */
   .student-search-company-input {
     width: calc(100% - 88px);
     height: 40px;
@@ -76,7 +71,7 @@ body {
 .get-filtred-list-2,
 .clearFilters {
   width: 100%;
-  padding: 3px 10px;
+  padding: 9px 10px;
   margin-bottom: 12px;
   cursor: pointer;
   display: flex;
@@ -107,6 +102,7 @@ body {
 }
 .student-sidebar .title {
   margin-bottom: 4px;
+  margin-top: 12px;
 }
 .student-main-content {
   width: 73%;
