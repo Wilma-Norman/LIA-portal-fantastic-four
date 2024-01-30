@@ -53,66 +53,52 @@
         />
       </section>
       <section class="student-sidebar-and-main-content-container">
-        <aside class="student-sidebar">
+        <div class="hamburder-filter-icon">
+          <i class="fa-solid fa-caret-down"></i> <span>Filter List</span
+          ><i class="fa-solid fa-caret-down"></i>
+        </div>
+        <aside class="student-sidebar added-d-none">
           <h3 class="filter-title">Filters <i class="fa-solid fa-filter"></i></h3>
           <button class="get-filtred-list-1">
             Get filtered list <i class="fa-solid fa-list-check"></i>
           </button>
-          <div class="filter-with-sector">
-            <h4 class="filter-sector-title title">Sectors</h4>
-            <!-- <div>
-              <input type="checkbox" id="fullstack" name="interest" value="fullstack" />
-              <label for="music">Frontend</label>
-            </div> -->
+          <div class="flex-row-mobil">
+            <div class="filter-with-sector">
+              <h4 class="filter-sector-title title">Sectors</h4>
+              <!-- <div>
+                <input type="checkbox" id="fullstack" name="interest" value="fullstack" />
+                <label for="music">Frontend</label>
+              </div> -->
+            </div>
+            <div class="filter-with-city">
+              <h4 class="filter-city-title title">Cities</h4>
+              <!-- <div>
+                <input type="checkbox" id="fullstack" name="interest" value="fullstack" />
+                <label for="music">Remote</label>
+              </div> -->
+            </div>
+            <div class="filter-with-situation">
+              <h4 class="filter-situation-title title">Situation</h4>
+              <div>
+                <input
+                  type="checkbox"
+                  class="filter-checkbox situation"
+                  name="situation"
+                  value="remote"
+                />
+                <label for="music">Remote</label>
+              </div>
+              <div>
+                <input
+                  type="checkbox"
+                  class="filter-checkbox situation"
+                  name="situation"
+                  value="onsite"
+                />
+                <label for="music">Onsite</label>
+              </div>
+            </div>
           </div>
-          <div class="filter-with-city">
-            <h4 class="filter-city-title title">Cities</h4>
-            <!-- <div>
-              <input type="checkbox" id="fullstack" name="interest" value="fullstack" />
-              <label for="music">Remote</label>
-            </div> -->
-          </div>
-          <div class="filter-with-situation">
-            <h4 class="filter-situation-title title">Situation</h4>
-            <div>
-              <input
-                type="checkbox"
-                class="filter-checkbox situation"
-                name="situation"
-                value="remote"
-              />
-              <label for="music">Remote</label>
-            </div>
-            <div>
-              <input
-                type="checkbox"
-                class="filter-checkbox situation"
-                name="situation"
-                value="onsite"
-              />
-              <label for="music">Onsite</label>
-            </div>
-          </div>
-          <!-- <div class="filter-with-date">
-            <h4 class="filter-date-title title">Starting Date</h4>
-            <div>
-              <input type="checkbox" class="filter-checkbox date" name="date" value="aMonth" />
-              <label for="music">In a month</label>
-            </div>
-            <div>
-              <input type="checkbox" class="filter-checkbox date" name="date" value="threeMonth" />
-              <label for="music">In three month</label>
-            </div>
-            <div>
-              <input
-                type="checkbox"
-                class="filter-checkbox date"
-                name="date"
-                value="afterThreeMonth"
-              />
-              <label for="music">After three month</label>
-            </div>
-          </div> -->
           <button class="get-filtred-list-2">
             Get filtered list <i class="fa-solid fa-list-check"></i>
           </button>
