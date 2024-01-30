@@ -202,8 +202,8 @@ const getEducationFilter = () => {
     }
 }
 
-$(".search-button").click(() => {// add check if screen width is changed and remove the classses if it gets over 900
-    if($(window).width() < 900){
+$(".search-button").click(() => {
+    if($(window).width() < 900){// add check if screen width is changed and remove the classses if it gets over 900
         $('.main-content-container, .search-bar-container').toggleClass('mobile-filter-anchor');
         $('.filter-container').toggleClass('visible-filter');
         $('.search-input').toggleClass('visible-mobile-search');
