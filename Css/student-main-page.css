@@ -52,6 +52,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: start;
+  color: rgba(126, 120, 170, 1);
 }
 .student-sidebar {
   width: 27%;
