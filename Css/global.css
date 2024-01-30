@@ -85,20 +85,22 @@ body {
     font-size: 2rem;    
   }
 
-  #active {
-    background-color: var(--primary-light);
-    position: absolute;
-    top: 76px;
-    display: flex;
-    flex-direction: column;
-  }
+  
 
   .main-navigations {
     display: none;
     padding: 10px 10px 10px 0px;
     border-radius: 0px 0px 10px 10px;
-    opacity: 75%;
+    opacity: 95%;
 
+  } 
+  .active {
+    background-color: var(--primary-light);
+    position: absolute;
+    top: 76px;
+    display: flex;
+    flex-direction: column;
+    right: 0;
   }
 
   .burger {
