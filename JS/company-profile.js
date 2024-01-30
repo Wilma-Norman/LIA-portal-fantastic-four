@@ -63,5 +63,5 @@ $("#settings-button").click(() => {
 });
 
 $("#return-button").click(async () => {
-    console.log('return button has been pressed');
+    window.location.href = "company-main-page.html"
 });

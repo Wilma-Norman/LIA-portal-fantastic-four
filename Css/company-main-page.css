@@ -148,8 +148,12 @@ body {
     border: 1px solid var(--black);
 }
 
-
+.test {
+    background-color: wheat;
+}
 @media screen and (max-width: 900px) {
+
+    
 
     .search-bar-container {
         border-bottom: 1px solid var(--primary-light);
@@ -158,7 +162,6 @@ body {
     .search-button {
         height: 52px;
         width: 100%;
-
     }
 
     .search-button > img {
@@ -169,7 +172,6 @@ body {
     .search-button > img path {
         fill: white;
     }
-
 
     .search-input {
         display: none;
@@ -289,5 +291,9 @@ body {
 
     .small-profile {
         width: 48%;
+    }
+
+    .small-profile:hover {
+        cursor: pointer;
     }
 }

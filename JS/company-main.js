@@ -25,8 +25,7 @@ And it is called att the bottom of this file
 const createMainPageContent = () => {
     for (const student of students) {
         $('.main-content').append(`
-            <div class="small-profile">
-                <a href="company-profile.html?id=${student.id}"></a>
+            <div class="small-profile" id="${student.id}"}>
                 <img id="profile-image" src="../Image/temp-avatar-icon.png" alt="profile icon"> 
                 <div class="text-wrapper">
                     <p class="profile-name">${student.name}</p>
@@ -49,7 +48,7 @@ const renderFilteredItems = () => {
     for (const student of getFilteredContentList()) {
         console.log(student)
         $('.main-content').append(`
-            <div class="small-profile">
+            <div class="small-profile" id="${student.id}">
                 <a href="company-profile.html?id=${student.id}"></a>
                 <img id="profile-image" src="../Image/temp-avatar-icon.png" alt="profile icon"> 
                 <div class="text-wrapper">
@@ -202,6 +201,10 @@ const getEducationFilter = () => {
     }
 }
 
+/* 
+    Targets a bunch of elements in the html document 
+*/
+
 $(".search-button").click(() => {
     if($(window).width() < 900){// add check if screen width is changed and remove the classses if it gets over 900
         $('.main-content-container, .search-bar-container').toggleClass('mobile-filter-anchor');
@@ -211,6 +214,21 @@ $(".search-button").click(() => {
         $('#search-icon').attr('src', ($('#search-icon').attr('src').endsWith('search.svg') ? '../Image/close.svg' : '../Image/search.svg'));
     }
 })
+
+
+/*
+    attaches to the main-content div, the parent div that holds the dynamically generated small profiles
+    a function that listens to clicks on the small-profile divs. and when one is clicked it takes the 
+    value stored in the profiles id and combines it to the url in the a tag in each small profile.
+    then moves the window to that location. Most definitly not the best way or optimized but it works,  
+*/
+$(function() {
+    $('.main-content').on('click', '.small-profile', function() {
+        var profileId = $(this).attr('id');
+        var newUrl = 'company-profile.html?id=' + profileId;
+        window.location.href = newUrl;
+    });
+});
 
 /*
     these functions are responsible for the initial setup for the main page content.
