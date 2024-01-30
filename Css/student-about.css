@@ -30,7 +30,6 @@
     border: 1px solid black;
     width: 30%;
     height: 100%;
-
 }
 
 .profile-image-container {    
@@ -86,4 +85,6 @@ p {
     border: 1px solid black;
     flex: 7;
 }
+
+
 
