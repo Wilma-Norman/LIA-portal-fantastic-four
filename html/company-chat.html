@@ -12,10 +12,11 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="../Css/company-chat.css" />
     <link rel="stylesheet" href="../Css/global.css" />
     <link rel="stylesheet" href="../Css/footer.css" />
+    <link rel="stylesheet" href="../Css/company-chat.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
+    <script src="../JS/testData.js" defer></script>
     <script src="../JS/company-chat.js" defer></script>
   </head>
   <body>
@@ -38,6 +39,108 @@
         </nav>
       </div>
     </header>
+    <!-- Chat area start -->
+    <h2 class="chat-title">
+      <span>Chats</span> <span class="login-select-title">Select the person who is logged in</span>
+      <span class="chose-active-company"></span>
+    </h2>
+    <main class="chat-main-container">
+      <section class="chat-sidebar">
+        <h3>My Chat List</h3>
+        <input class="search-chat-input" type="text" placeholder="🔍 Search.." />
+        <div class="scrool-container">
+          <div class="chat-person-container">
+            <img class="chat-friend-img" src="../Image/lia.png" alt="" />
+            <div class="friend-info">
+              <p class="name">Luise</p>
+              <p class="last-message">
+                <span class="message">Hello</span> <span class="date">20.34</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="modal-container">
+        <div class="modal-icon">
+          <div class="icon-bar one"></div>
+          <div class="icon-bar two"></div>
+          <div class="icon-bar three"></div>
+        </div>
+        <div class="modal none-dis" id="myModal">
+          <!-- Modal Content Goes Here -->
+          <!-- Company Caht page sidebar start -->
+          <section class="chat-sidebar-hamburger">
+            <input class="search-chat-input" type="text" placeholder="🔍 Search.." />
+            <div class="scrool-container-hamburger">
+              <div class="chat-person-container">
+                <!-- Dynamic chat list will come here -->
+                <img class="chat-friend-img" src="../Image/lia.png" alt="" />
+                <div class="friend-info">
+                  <p class="name">Luise</p>
+                  <p class="last-message">
+                    <span class="message">Hello</span> <span class="date">20.34</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Company Caht page sidebar end -->
+        </div>
+      </div>
+      <section class="chat-main-content">
+        <div class="active-person-info">
+          <div class="active-left-area">
+            <img class="active-chat-img" src="../Image/lia.png" alt="" />
+            <div class="active-chat-info">
+              <p class="active-chat-person-name">Luise Rose</p>
+              <p class="is-active online"><i class="fa-solid fa-circle-check"></i>Online</p>
+              <p class="is-active offline none-dis">
+                <i class="fa-solid fa-circle-xmark"></i>Offline
+              </p>
+            </div>
+          </div>
+          <div class="active-chat-icons">
+            <i class="fa-solid fa-phone-volume"></i>
+            <i class="fa-solid fa-video"></i>
+          </div>
+        </div>
+        <div class="chat-area">
+          <!-- <p class="received-message">How are you man!</p>
+          <p class="sended-message">Thanks, I am fine, and you?</p>
+          <p class="received-message">How are you man!</p>
+          <p class="sended-message">Thanks, I am fine, and you?</p>
+          <p class="received-message">How are you man!</p>
+          <p class="sended-message">
+            Thanks, I am fine, and you? Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Minima officia hic quis, adipisci culpa quidem, totam ratione eos porro explicabo
+            molestias. Inventore reiciendis, laboriosam totam quia voluptatibus atque aliquid quas.
+          </p>
+          <p class="sended-message">
+            Thanks, I am fine, and you? Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Minima officia hic quis, adipisci culpa quidem, totam ratione eos porro explicabo
+            molestias. Inventore reiciendis, laboriosam totam quia voluptatibus atque aliquid quas.
+          </p>
+          <p class="sended-message">
+            Thanks, I am fine, and you? Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Minima officia hic quis, adipisci culpa quidem, totam ratione eos porro explicabo
+            molestias. Inventore reiciendis, laboriosam totam quia voluptatibus atque aliquid quas.
+          </p> -->
+        </div>
+        <div class="chat-input-area">
+          <input
+            class="written-message-input"
+            type="text"
+            placeholder="Write your message here.."
+          />
+          <div class="icons-for-sending">
+            <i class="fa-solid fa-plus"></i>
+            <i class="fa-solid fa-face-smile"></i>
+            <i id="send-message-button" class="fa-solid fa-paper-plane"></i>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Chat area end -->
     <!-- Footer area start -->
     <footer>
       <div class="footer-container">
