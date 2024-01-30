@@ -14,7 +14,7 @@ const clearFiltersButton = document.querySelector(".clearFilters"); // Button to
 const mobliFilterIconContainer = document.querySelector(".hamburder-filter-icon");
 const mobilderFilterIcon = document.querySelectorAll(".hamburder-filter-icon i");
 
-mobliFilterIconContainer.addEventListener("click", () => {
+const openCloseMobilFilterList = () => {
   const studentSidebar = document.querySelector(".student-sidebar");
 
   studentSidebar.classList.toggle("added-d-none");
@@ -28,7 +28,8 @@ mobliFilterIconContainer.addEventListener("click", () => {
       item.classList.add("fa-caret-down");
     }
   });
-});
+};
+mobliFilterIconContainer.addEventListener("click", openCloseMobilFilterList);
 
 // Data and filter variables
 let updateInternshipsdata = internships; // Initial internship data
@@ -75,6 +76,21 @@ const renderFilteredList = () => {
 
   // Render the filtered list
   renderInternshipList(filteredList);
+  // When clicked Get filter List button, these codes close filter area..
+  const studentSidebar = document.querySelector(".student-sidebar");
+  console.log(studentSidebar.classList.contains("added-d-none"));
+  if (!studentSidebar.classList.contains("added-d-none")) {
+    studentSidebar.classList.add("added-d-none");
+  }
+  mobilderFilterIcon.forEach((item) => {
+    if (item.classList.contains("fa-caret-down")) {
+      item.classList.remove("fa-caret-down");
+      item.classList.add("fa-caret-up");
+    } else {
+      item.classList.remove("fa-caret-up");
+      item.classList.add("fa-caret-down");
+    }
+  });
 };
 
 /* Filter events */
