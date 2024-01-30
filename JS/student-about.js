@@ -41,4 +41,15 @@ const createFounderProfile = () => {
 createFounderProfile();
 
 
+ $(".burger").click(() => {
+      $(".main-navigations").toggleClass("active");
+ }) 
+
+// $(".burger").click(() => {
+//     $(".main-navigations").toggle("active");
+//     $(".burger > span").toggleClass('testClass');
+// }) 
+
+
+
 
