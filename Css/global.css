@@ -85,8 +85,20 @@ body {
     font-size: 2rem;    
   }
 
+  #active {
+    background-color: var(--primary-light);
+    position: absolute;
+    top: 76px;
+    display: flex;
+    flex-direction: column;
+  }
+
   .main-navigations {
     display: none;
+    padding: 10px 10px 10px 0px;
+    border-radius: 0px 0px 10px 10px;
+    opacity: 75%;
+
   }
 
   .burger {
@@ -100,12 +112,25 @@ body {
     margin: 10px 10px 10px;
     margin-left: auto;
   }
- 
-.burger > span {
+
+  
+  .burger > span {
     width: 80%;
     height: 20%;
     background-color: var(--primary);
   }
 
+
+
+  
+  /* .burger > .testClass {
+    width: 25px;
+    height: 8px;
+ 
+}
+
+.main-navigations {
+  margin: -10px; 
+} */
 
 }
