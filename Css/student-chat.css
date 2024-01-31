@@ -109,10 +109,11 @@
   }
   .last-message {
     width: 100%;
-    font-size: 0.5rem;
+    font-size: 0.6rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: var(--primary-light);
   }
 }
 /* sidebar css end */

@@ -207,7 +207,7 @@ const renderFriendsChatList = () => {
 
     if (controlChathistory.length > 0) {
       controlChathistory.forEach((message) => {
-        if (message.senderId == senderPerson.id) {
+        if (message.senderId == senderPerson.id || message.receiverId == senderPerson.id) {
           lastMessage = [
             controlChathistory[controlChathistory.length - 1].content,
             controlChathistory[controlChathistory.length - 1].timestamp,
@@ -225,15 +225,22 @@ const renderFriendsChatList = () => {
 
   const chatList = friendsList
     .map((student) => {
-      const aa = getMessageFromActiveCompany(student.id);
+      const lastMessageInfo = getMessageFromActiveCompany(student.id);
       return `
        <div onclick="renderMessage(${student.id})" class="chat-person-container">
             <img class="chat-friend-img" src="../Image/lia.png" alt="" />
             <div class="friend-info">
                 <p class="name">${student.name} ${student.surname}</p>
                 <p class="last-message">
-                    <span class="message">${aa[0].slice(0, 32)}..</span> <span class="date">${
-        aa[1] !== null ? new Date(aa[1]).getHours() + " " + new Date(aa[1]).getMinutes() : ""
+                    <span class="message">${lastMessageInfo[0].slice(
+                      0,
+                      32
+                    )}..</span> <span class="date">${
+        lastMessageInfo[1] !== null
+          ? new Date(lastMessageInfo[1]).getHours() +
+            " " +
+            new Date(lastMessageInfo[1]).getMinutes()
+          : ""
       }</span>
                 </p>
             </div>
@@ -269,11 +276,6 @@ const renderFriendsChatList = () => {
     activeChatPersonName.innerText = `${activeRecevier.name} ${activeRecevier.surname}`;
     online.classList.remove("none-dis");
     offline.classList.add("none-dis");
-    // if (friendsList[0].receiver == true) {
-    // } else {
-    //   online.classList.add("none-dis");
-    //   offline.classList.remove("none-dis");
-    // }
   }
 };
 renderFriendsChatList();
