@@ -12,11 +12,12 @@
 }
 .login-select-title {
   position: absolute;
-  right: 7px;
+  right: 38px;
   top: 32px;
   color: #e0da07;
   font-size: 0.7rem;
 }
+
 #active-company {
   height: 26px;
   border-radius: 6px;

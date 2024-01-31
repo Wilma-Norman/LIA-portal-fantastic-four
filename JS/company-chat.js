@@ -130,6 +130,7 @@ function selectactiveCompanyChanged() {
   }
   const receiver = updateStudentData.find((student) => student.receiver == true);
   renderMessage(receiver.id);
+  renderFriendsChatList();
 }
 
 // Değişiklik dinleyicisini <select> elementine ekle
@@ -178,10 +179,6 @@ const renderMessage = (pReceiverId) => {
       (message) => message.senderId == receiverPerson.id && message.receiverId == sender.id
     );
 
-    console.log(receiverPerson.id);
-    console.log(sender.id);
-    console.log(filterIncomingChatHistory.concat(filterOngoingChatHistory));
-
     const messagesList = SortMessages(filterIncomingChatHistory.concat(filterOngoingChatHistory));
     chatArea.innerHTML = messagesList
       .map((message) => {
@@ -196,27 +193,47 @@ const renderMessage = (pReceiverId) => {
 /* Render dynamic friends list to sidebar of student chat page  START*/
 const renderFriendsChatList = () => {
   updateStudentData = getLocalStorage("allStudentListToCompany");
+  updateCompanyData = getLocalStorage("allCompanyList");
 
-  const friendsList = updateStudentData.filter(
-    (student) => student.school == "Changemaker Educations" && student.receiver == false
-  );
+  const friendsList = updateStudentData;
+
+  const getMessageFromActiveCompany = (pReceiverId) => {
+    const senderPerson = updateCompanyData.find((company) => company.isActive == true);
+    const controlChathistory = updateStudentData.find(
+      (student) => student.id == pReceiverId
+    ).chatHistory;
+
+    let lastMessage = null;
+
+    if (controlChathistory.length > 0) {
+      controlChathistory.forEach((message) => {
+        if (message.senderId == senderPerson.id) {
+          lastMessage = [
+            controlChathistory[controlChathistory.length - 1].content,
+            controlChathistory[controlChathistory.length - 1].timestamp,
+          ];
+        } else {
+          lastMessage = ["You don't have a connection yet!", null];
+        }
+      });
+    } else {
+      lastMessage = ["You don't have a connection yet!", null];
+    }
+
+    return lastMessage;
+  };
 
   const chatList = friendsList
-    .map((studnet) => {
+    .map((student) => {
+      const aa = getMessageFromActiveCompany(student.id);
       return `
-       <div onclick="renderMessage(${studnet.id})" class="chat-person-container">
+       <div onclick="renderMessage(${student.id})" class="chat-person-container">
             <img class="chat-friend-img" src="../Image/lia.png" alt="" />
             <div class="friend-info">
-                <p class="name">${studnet.name} ${studnet.surname}</p>
+                <p class="name">${student.name} ${student.surname}</p>
                 <p class="last-message">
-                    <span class="message">${
-                      studnet.chatHistory == undefined
-                        ? studnet.chatHistory[studnet.chatHistory.length - 1].message
-                        : "You don't connettion yet!"
-                    }</span> <span class="date">${
-        studnet.chatHistory == undefined
-          ? studnet.chatHistory[studnet.chatHistory.length - 1].date
-          : ""
+                    <span class="message">${aa[0].slice(0, 32)}..</span> <span class="date">${
+        aa[1] !== null ? new Date(aa[1]).getHours() + " " + new Date(aa[1]).getMinutes() : ""
       }</span>
                 </p>
             </div>
@@ -229,21 +246,34 @@ const renderFriendsChatList = () => {
   scroolContainerHamburger.innerHTML = chatList;
 
   // arkadas listesi yuklendiginde ilk siradaki kisinin alici olarak belirlenmesi
-  updateStudentData.forEach((student) => (student.receiver = false));
-  const findReceiver = updateStudentData.find((student) => student.id == friendsList[0].id);
-  findReceiver.receiver = true;
-  renderMessage(findReceiver.id);
-  setLocalStorage("allStudentListToCompany", updateStudentData);
-  updateStudentData = getLocalStorage("allStudentListToCompany");
+  if (!updateStudentData.find((e) => e.receiver == true)) {
+    updateStudentData.forEach((student) => (student.receiver = false));
+    const findReceiver = updateStudentData.find((student) => student.id == friendsList[0].id);
+    findReceiver.receiver = true;
+    renderMessage(findReceiver.id);
+    setLocalStorage("allStudentListToCompany", updateStudentData);
+    updateStudentData = getLocalStorage("allStudentListToCompany");
 
-  console.log(friendsList[0]);
-  activeChatPersonName.innerText = `${friendsList[0].name} ${friendsList[0].surname}`;
-  if (friendsList[0].receiver == true) {
+    activeChatPersonName.innerText = `${friendsList[0].name} ${friendsList[0].surname}`;
+    if (friendsList[0].receiver == true) {
+      online.classList.remove("none-dis");
+      offline.classList.add("none-dis");
+    } else {
+      online.classList.add("none-dis");
+      offline.classList.remove("none-dis");
+    }
+  } else {
+    const activeRecevier = updateStudentData.find((el) => el.receiver == true);
+    renderMessage(activeRecevier.id);
+
+    activeChatPersonName.innerText = `${activeRecevier.name} ${activeRecevier.surname}`;
     online.classList.remove("none-dis");
     offline.classList.add("none-dis");
-  } else {
-    online.classList.add("none-dis");
-    offline.classList.remove("none-dis");
+    // if (friendsList[0].receiver == true) {
+    // } else {
+    //   online.classList.add("none-dis");
+    //   offline.classList.remove("none-dis");
+    // }
   }
 };
 renderFriendsChatList();
@@ -259,8 +289,6 @@ const sendNewMessage = () => {
   if (messageContent) {
     const sender = updateCompanyData.find((company) => company.isActive === true);
     const receiver = updateStudentData.find((student) => student.receiver === true);
-    console.log(updateCompanyData);
-    console.log(receiver);
     // Gönderen için yeni mesaj
     const newMessageSender = {
       receiverId: receiver.id,
@@ -285,21 +313,22 @@ const sendNewMessage = () => {
 
     // Güncellenmiş veriyi localStorage'a geri yazın
     setLocalStorage("allCompanyList", updateCompanyData);
+    setLocalStorage("allStudentListToCompany", updateStudentData);
 
     // updateCompanyData'ı güncelleyin
     updateCompanyData = getLocalStorage("allCompanyList");
+    updateStudentData = getLocalStorage("allStudentListToCompany");
     renderMessage(receiver.id);
 
     writtenMessageInput.value = "";
-    console.log(sender);
-    console.log(receiver);
   } else {
     alert("Sending an empty message may not be polite :)");
   }
 
-  console.log(messageContent);
+  renderFriendsChatList();
 };
-
+console.log(students);
+console.log(updateStudentData);
 sendMessageButton.addEventListener("click", sendNewMessage);
 // Enter tuşu ile formu gönderme
 document.addEventListener("keyup", function (event) {
