@@ -83,9 +83,7 @@ body {
 
   .main-header {
     font-size: 2rem;    
-  }
-
-  
+  }  
 
   .main-navigations {
     display: none;
@@ -101,6 +99,7 @@ body {
     display: flex;
     flex-direction: column;
     right: 0;
+    margin: 0;
   }
 
   .burger {
@@ -121,6 +120,7 @@ body {
     height: 20%;
     background-color: var(--primary);
   }
+  
 
 
 
