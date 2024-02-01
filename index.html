@@ -17,51 +17,42 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-
     <link rel="stylesheet" href="Css/index.css" />
     <link rel="stylesheet" href="Css/global.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <!-- i dont know if this should be here or in a common place-->
     <script src="JS/index.js" defer></script>
     <script src="JS/data.js" defer></script>
   </head>
   <body>
+    <header>
+      <div class="wraper">
+        <h1 class="main-header">LIA Portal</h1>
+      </div>
+    </header>
     <div class="main">
       <div class="main-container">
-        <div class="">
-          <p>Lia Portal</p>
-          <!-- this need to be bigger-->
+        <div class="welcome-message">
+          <h1>Choose either Student or Company to view how the website would look for each account type.</h1>
         </div>
-        <div class="">
-          <p>Click on either button to view...</p>
-          <!--This text is not final, input needed-->
-        </div>
-        <div class="button-container">
-          <p class="button-container-text">Student view</p>
-          <button
-            href="html/student-main-page.html"
-            class="landing-page-button"
-            id="student-button"
-          >
-            Clicky</button
-          ><!-- text on the button is not final-->
-        </div>
-        <div class="">
-          <p>Or</p>
-        </div>
-        <div class="button-container">
-          <button
-            href="html/company-main-page.html"
-            class="landing-page-button"
-            id="company-button"
-          >
-            Clicky</button
-          ><!-- text on the button is not final-->
-          <p class="button-container-text">Company view</p>
+        <div class="button-wrapper">
+          <div class="button-container">
+            <p class="button-container-text">Student view</p>
+            <button
+              href="/html/student-main-page.html"
+              class="landing-page-button"
+              id="student-button">Enter<br>Student view </button>
+          </div>
+          <div class="button-container">
+            <p class="button-container-text">Company view</p>
+            <button
+              href="../html/company-main-page.html"
+              class="landing-page-button"
+              id="company-button">Enter<br>Company view</button>
+          </div>
         </div>
       </div>
     </div>
-    <footer></footer>
-    <!--just a placeholder, replace with the finished product-->
+    <div class="landing-page-footer"></div>
   </body>
 </html>
+
