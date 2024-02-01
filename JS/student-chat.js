@@ -105,59 +105,40 @@ function selectActiveStudentChanged() {
       }
     });
 
-    // Seçilen öğrencinin isActive özelliğini true yap
-    // activeStudent.isActive = true;
-
     // Güncellenmiş veriyi local storageda sakla
     setLocalStorage("allStudentList", updateData);
-    renderFriendsChatList();
   } else {
     console.log("No active students found.");
   }
+  renderFriendsChatListStudent();
 }
 // Değişiklik dinleyicisini <select> elementine ekle
 choseActiveStudent.addEventListener("change", selectActiveStudentChanged);
-console.log(choseActiveStudent);
-
-// // Değişiklik dinleyicisi fonksiyonu
-// function selectActiveStudentChanged() {
-//   const choseSelectedElement = document.getElementById("active-students");
-
-//   const selectedValue = choseSelectedElement.value;
-//   const activeStudent = updateData.find((student) => {
-//     const nameSurname = `${student.name} ${student.surname}`;
-//     return nameSurname === selectedValue;
-//   });
-
-//   console.log(`Seçilen değer: ${selectedValue}`);
-//   console.log(activeStudent);
-// }
 
 // Mesajlari gonderim tarihine gore siralayan fonksiyon
 const SortMessages = (pMessagesArray) => {
-  console.log(pMessagesArray);
   const sortedMessagesList = pMessagesArray.sort(function (a, b) {
     return a.timestamp - b.timestamp;
   });
-  console.log(sortedMessagesList);
 
   return sortedMessagesList;
 };
 // Sitede oturum acan kisinin chat alanina, mesajlastigi kisi ile arasindaki mesajlari render eder
-const renderMessage = (pReceiverId) => {
+const renderMessageStudent = (pReceiverId) => {
   updateData = getLocalStorage("allStudentList");
 
+  // alici disindakilerin receiver degeri false olur
   const updatedList = updateData.map((student) => {
     return { ...student, receiver: student.id === pReceiverId };
   });
-  console.log(updatedList);
+
   setLocalStorage("allStudentList", updatedList);
   updateData = getLocalStorage("allStudentList");
 
-  const receiverPerson = updateData.filter((student) => student.id == pReceiverId);
+  const receiverPerson = updateData.find((student) => student.id == pReceiverId);
   // This write receiver name to right side
-  activeChatPersonName.innerText = `${receiverPerson[0].name} ${receiverPerson[0].surname}`;
-  if (receiverPerson[0].isActive == true) {
+  activeChatPersonName.innerText = `${receiverPerson.name} ${receiverPerson.surname}`;
+  if (receiverPerson.receiver == true) {
     online.classList.remove("none-dis");
     offline.classList.add("none-dis");
   } else {
@@ -165,21 +146,16 @@ const renderMessage = (pReceiverId) => {
     offline.classList.remove("none-dis");
   }
 
-  updateData = getLocalStorage("allStudentList");
   const sender = updateData.find((student) => student.isActive == true);
   if (sender.chatHistory == undefined) {
     chatArea.innerHTML = "";
   } else {
     const filterIncomingChatHistory = sender.chatHistory.filter(
-      (message) => message.senderId == sender.id && message.receiverId == receiverPerson[0].id
+      (message) => message.senderId == sender.id && message.receiverId == receiverPerson.id
     );
     const filterOngoingChatHistory = sender.chatHistory.filter(
-      (message) => message.senderId == receiverPerson[0].id && message.receiverId == sender.id
+      (message) => message.senderId == receiverPerson.id && message.receiverId == sender.id
     );
-
-    console.log(receiverPerson[0].id);
-    console.log(sender.id);
-    console.log(filterIncomingChatHistory.concat(filterOngoingChatHistory));
 
     const messagesList = SortMessages(filterIncomingChatHistory.concat(filterOngoingChatHistory));
     chatArea.innerHTML = messagesList
@@ -191,28 +167,82 @@ const renderMessage = (pReceiverId) => {
       .join("");
   }
 };
+const getMessageFromActiveStudent = (pReceiverId) => {
+  const senderPerson = updateData.find((student) => student.isActive == true);
+  const receiverChathistory = updateData.find((student) => student.id == pReceiverId).chatHistory;
+  let abc = `${pReceiverId} id li elemanin ${senderPerson.name} den alidigi mesaj`;
+  let lastMessage = null;
+
+  if (receiverChathistory.length > 0) {
+    for (const message of receiverChathistory) {
+      if (message.senderId == senderPerson.id || message.receiverId == senderPerson.id) {
+        console.log(abc + "...mesajlar bulundu");
+        lastMessage = [
+          receiverChathistory[receiverChathistory.length - 1].content,
+          receiverChathistory[receiverChathistory.length - 1].timestamp,
+        ];
+        break; // Döngüyü burada sonlandır
+      } else {
+        lastMessage = ["You don't have a connection yet!", null];
+        console.log(abc + "...mesajlar bulunamadı");
+      }
+    }
+  } else {
+    console.log(abc + "...hiç mesaj yok");
+    lastMessage = ["You don't have a connection yet!", null];
+  }
+
+  // if (receiverChathistory.length > 0) {
+  //   receiverChathistory.forEach((message) => {
+  //     if (message.senderId == senderPerson.id) {
+  //       console.log(abc + "...mesarlar bulundu");
+  //       lastMessage = [
+  //         receiverChathistory[receiverChathistory.length - 1].content,
+  //         receiverChathistory[receiverChathistory.length - 1].timestamp,
+  //       ];
+  //       break
+  //     } else {
+  //       lastMessage = ["You don't have a connection yet!", null];
+  //       console.log(abc + "...mesarlar bulunamadu");
+  //     }
+  //   });
+  // } else {
+  //   console.log(abc + "...his mesaji yok");
+  //   lastMessage = ["You don't have a connection yet!", null];
+  // }
+
+  return lastMessage;
+};
 
 /* Render dynamic friends list to sidebar of student chat page  START*/
-const renderFriendsChatList = () => {
+const renderFriendsChatListStudent = () => {
+  updateData = getLocalStorage("allStudentList");
   const friendsList = updateData.filter(
     (student) => student.school == "Changemaker Educations" && student.isActive == false
   );
+  const activeStudent = updateData.find((e) => e.isActive == true);
+  activeStudent.receiver = false;
+  // friendsList[0].receiver = true;
+  setLocalStorage("allStudentList", updateData);
+  updateData = getLocalStorage("allStudentList");
 
   const chatList = friendsList
-    .map((studnet) => {
+    .map((student) => {
+      const lastMessageInfo = getMessageFromActiveStudent(student.id);
       return `
-       <div onclick="renderMessage(${studnet.id})" class="chat-person-container">
+       <div onclick="renderMessageStudent(${student.id})" class="chat-person-container">
             <img class="chat-friend-img" src="../Image/lia.png" alt="" />
             <div class="friend-info">
-                <p class="name">${studnet.name} ${studnet.surname}</p>
+                <p class="name">${student.name} ${student.surname}</p>
                 <p class="last-message">
-                    <span class="message">${
-                      studnet.chatHistory == undefined
-                        ? studnet.chatHistory[studnet.chatHistory.length - 1].message
-                        : "You don't connettion yet!"
-                    }</span> <span class="date">${
-        studnet.chatHistory == undefined
-          ? studnet.chatHistory[studnet.chatHistory.length - 1].date
+                    <span class="message">${lastMessageInfo[0].slice(
+                      0,
+                      32
+                    )}</span> <span class="date">${
+        lastMessageInfo[1] !== null
+          ? new Date(lastMessageInfo[1]).getHours() +
+            " " +
+            new Date(lastMessageInfo[1]).getMinutes()
           : ""
       }</span>
                 </p>
@@ -225,25 +255,36 @@ const renderFriendsChatList = () => {
   scroolContainer.innerHTML = chatList;
   scroolContainerHamburger.innerHTML = chatList;
 
-  // arkadas listesi yuklendiginde ilk siradaki kisinin alici olarak belirlenmesi
+  /** */
   updateData = getLocalStorage("allStudentList");
-  updateData.forEach((student) => (student.receiver = false));
-  const findReceiver = updateData.find((student) => student.id == friendsList[0].id);
-  findReceiver.receiver = true;
-  renderMessage(findReceiver.id);
-  //   friendsList[0].receiver = true;
-  setLocalStorage("allStudentList", updateData);
-  console.log(friendsList[0]);
-  activeChatPersonName.innerText = `${friendsList[0].name} ${friendsList[0].surname}`;
-  if (friendsList[0].isActive == true) {
+
+  if (!updateData.find((e) => e.receiver == true)) {
+    updateData.forEach((student) => (student.receiver = false));
+    const findReceiver = updateData.find((student) => student.id == friendsList[0].id);
+    findReceiver.receiver = true;
+    renderMessageStudent(findReceiver.id);
+    setLocalStorage("allStudentList", updateData);
+    updateData = getLocalStorage("allStudentList");
+    activeChatPersonName.innerText = `${findReceiver.name} ${findReceiver.surname}`;
+
+    if (findReceiver.receiver == true) {
+      online.classList.remove("none-dis");
+      offline.classList.add("none-dis");
+    } else {
+      online.classList.add("none-dis");
+      offline.classList.remove("none-dis");
+    }
+  } else {
+    const activeRecevier = updateData.find((el) => el.receiver == true);
+    renderMessageStudent(activeRecevier.id);
+
+    activeChatPersonName.innerText = `${activeRecevier.name} ${activeRecevier.surname}`;
     online.classList.remove("none-dis");
     offline.classList.add("none-dis");
-  } else {
-    online.classList.add("none-dis");
-    offline.classList.remove("none-dis");
   }
+  /** */
 };
-renderFriendsChatList();
+renderFriendsChatListStudent();
 /* Render dynamic friends list to sidebar of student chat page  END*/
 
 // This fonksiyon send message
@@ -284,16 +325,13 @@ const sendNewMessage = () => {
 
     // updateData'ı güncelleyin
     updateData = getLocalStorage("allStudentList");
-    renderMessage(receiver.id);
+    renderMessageStudent(receiver.id);
 
     writtenMessageInput.value = "";
-    console.log(sender);
-    console.log(receiver);
   } else {
     alert("Sending an empty message may not be polite :)");
   }
-
-  console.log(messageContent);
+  renderFriendsChatListStudent();
 };
 
 sendMessageButton.addEventListener("click", sendNewMessage);
