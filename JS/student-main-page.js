@@ -221,7 +221,7 @@ ship-short-info">
                           internship.expectations.length <= 150
                             ? internship.expectations
                             : internship.expectations.slice(0, 150)
-                        }
+                        }...
                     </p>
                     <div class="date-and-button">
                         <p class="internship-date">${internship.startDate} - ${
@@ -230,7 +230,7 @@ ship-short-info">
                         <button onclick="
                         getInternshipLargeInfo(
                             ${internship.id}
-                          )" class="get-long-info">View Internship</button>
+                          )" class="get-long-info">View Internship Details</button>
                     </div>
                 </div>
             <span onclick="internshipAddedFavorite(${internship.id})" class="heart add-favorite-${
