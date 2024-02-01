@@ -14,14 +14,64 @@
             <h1 class="main-header">Contact Us</h1>
             <nav>
                 <ul class="main-navigations">
-                    <li><a href="company-main-page.html" class="nav-link">Home</a></li>
-                    <li><a href="company-about.html" class="nav-link">About</a></li>
-                    <li><a href="company-profile.html" class="nav-link">Profiles</a></li>
-                    <li><a href="company-chat.html" class="nav-link">Chat</a></li>
-                    <li><a href="company-contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="student-main-page.html" class="nav-link">Home</a></li>
+                    <li><a href="student-about.html" class="nav-link">About</a></li>
+                    <li><a href="student-profile.html" class="nav-link">Profiles</a></li>
+                    <li><a href="student-chat.html" class="nav-link">Chat</a></li>
+                    <li><a href="student-contact.html" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+    <section class="title">
+        <h2>Get in touch</h2>
+    </section>
+    <section class="form-controls">
+        <form action="mailto: someone@email.com" method="POST" enctype="text/plain">
+            <h3>Enter the information needed and we will get back to you</h3>
+            <p><span class="required"></span> * is a required field</p>
+        <fieldset>
+            <legend></legend>           
+                <div class="field">
+                    <label class="required" for="first-name"></label>
+                    <input type="text" name="first-name" placeholder="*Your Name.." minlength="2" required class="first-name">
+                </div>           
+                <div class="field">
+                    <label class="required" for="Email"></label>
+                    <input type="text" name="Email" placeholder="*Your Email.." minlength="2" required class="Email">
+                </div>
+        </fieldset>
+                
+        <fieldset>
+            <legend></legend> 
+                <div class="field">
+                    <label for="thoughts">Enter questions here:</label>
+                    <textarea id="thoughts" name="thoughts" 
+                    placeholder="Questions"></textarea>
+                 </div>
+
+                
+                <div class="field">
+                <fieldset>
+                    <legend> Let us know if you have a language preferation</legend>                              
+                    <label for="countries"></label>
+                            
+                    <select id="countries" name="countries">
+                    <option value="Sweden">Swedish</option>
+                    <option value="Finland">Finnish</option>                        <option value="Spain">Spanish</option>
+                    <option value="England">English</option>
+                    <option value="Iran">Persian</option>
+                    <option value="Turkey">Turkish</option>
+                    </select>
+                 </fieldset>
+                
+                    <button>Send!</button>
+            </form>
+        </section>
+            <footer>
+                &copy; Copyright by Fantastic Four 2024
+            </footer>
+        </body>
+    </html>
 </body>
 </html>
