@@ -63,7 +63,7 @@ body {
   background-color: var(--primary-light);
 }
 
-.bob {
+.sub-menu-wrapper {
   background-color: var(--primary-light);
   list-style: none;
   display: none;
@@ -73,14 +73,14 @@ body {
   gap: 16px;
 }
 
-.Rob {
+.sub-menu-list-item {
   font-size: 1.2rem;
   margin: 0 16px;
   color: var(--primary);
   position: relative;
 }
 
-.Rob:hover {
+.sub-menu-list-item:hover {
   cursor: pointer;
   color: var(--white);
   text-decoration: underline;
@@ -140,7 +140,7 @@ body {
     margin: 0;
   }
 
-  .Rob {
+  .sub-menu-list-item {
     margin: 0;
     display: flex;
     flex-direction: row-reverse;
@@ -148,7 +148,7 @@ body {
     font-size: 2rem;
   }
 
-  .bob {
+  .sub-menu-wrapper {
     right: 100%;
   }
 

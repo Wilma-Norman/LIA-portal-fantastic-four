@@ -46,8 +46,8 @@ createFounderProfile();
  }) 
 
 
-$(".Rob").click(() => {
-    $(".bob").toggleClass("sub-menu-active");
+$(".sub-menu-list-item").click(() => {
+    $(".sub-menu-wrapper").toggleClass("sub-menu-active");
 }) 
 
 
