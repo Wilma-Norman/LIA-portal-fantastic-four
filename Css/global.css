@@ -39,8 +39,14 @@ body {
 }
 
 .main-header {
-  margin: 10px;
+  margin-left: 8px;
   color: var(--primary);
+  display: flex;
+  align-items: center;
+  .lia-company-logo {
+    width: 53px;
+    margin-right: 8px;
+  }
 }
 
 .main-navigations {
@@ -55,8 +61,8 @@ body {
 
 .nav-link {
   font-size: 1.2rem;
-  padding: 16px;
-  margin: 16px;
+  padding: 12px;
+  margin: 8px;
   text-decoration: none;
   color: var(--primary);
 }
@@ -67,8 +73,8 @@ body {
 }
 
 .current-page {
-  background: rgb(61,55,107);
-  background: linear-gradient(0deg, rgba(61,55,107,1) 0%, rgba(126,120,170,1) 100%);
+  background: rgb(61, 55, 107);
+  background: linear-gradient(0deg, rgba(61, 55, 107, 1) 0%, rgba(126, 120, 170, 1) 100%);
   border-bottom: 2px solid var(--primary);
 }
 
@@ -77,7 +83,6 @@ body {
   list-style: none;
   display: none;
   position: absolute;
-  z-index: 89999;
   border-radius: 10px;
   padding: 20px;
   gap: 16px;
@@ -137,12 +142,12 @@ body {
   }
 
   .main-header {
-    font-size: 2rem;    
-  }    
+    font-size: 2rem;
+  }
 
   .main-navigations {
     display: none;
-    padding: 20px;    
+    padding: 20px;
     border-radius: 0px 0px 10px 10px;
     opacity: 95%;
   }
@@ -180,14 +185,13 @@ body {
   }
 
   .sub-menu-active {
-
   }
 
   .current-page {
     border-left: 2px solid var(--primary);
     border-bottom: none;
-    background: rgb(61,55,107);
-    background: linear-gradient(90deg, rgba(61,55,107,1) 0%, rgba(126,120,170,1) 100%);
+    background: rgb(61, 55, 107);
+    background: linear-gradient(90deg, rgba(61, 55, 107, 1) 0%, rgba(126, 120, 170, 1) 100%);
   }
 
   .burger {
@@ -201,16 +205,10 @@ body {
     margin: 10px 10px 10px;
     margin-left: auto;
   }
-  
+
   .burger > span {
     width: 80%;
     height: 20%;
     background-color: var(--primary);
   }
-
 }
-
-
-  
- 
-

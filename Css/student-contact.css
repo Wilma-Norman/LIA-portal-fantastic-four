@@ -1,135 +1,130 @@
 :root {
-    --primary--background-color: #251d63;
-    --primary--lighter-color: #3d376b;
-    --primary--lightest: #7e78aa;
-    --off-white: #ececec;
-    --white:#fbfbfb;
-    --black:#080910; 
+  --primary--background-color: #251d63;
+  --primary--lighter-color: #3d376b;
+  --primary--lightest: #7e78aa;
+  --off-white: #ececec;
+  --white: #fbfbfb;
+  --black: #080910;
 }
 
 html {
-    min-height: 100vh;
+  min-height: 100vh;
 }
 
 body {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
 }
 
 button {
-    background-color: var(--primary--background-color);
-    color: var(--white);
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  background-color: var(--primary--background-color);
+  color: var(--white);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 button:hover {
-    background-color: var(--primary--lighter-color);
+  background-color: var(--primary--lighter-color);
 }
 
-
 fieldset {
-    border: 0.5px solid var(--primary--lightest);
-    border-radius: 5px;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-style: solid;
+  border: 0.5px solid var(--primary--lightest);
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-style: solid;
 }
 
 form {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: var(--white);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: var(--white);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .form-controls {
-    background-color: var(--primary--lighter-color);
-    padding: 30px 0;
+  background-color: var(--primary--lighter-color);
+  padding: 30px 0;
 }
 
-h2 {
-    color: var(--primary--lightest);
-    text-align: center;
-    padding: 12px;
-    font-size: 40px;
+.title h2 {
+  color: var(--primary--lightest);
+  text-align: center;
+  padding: 12px;
+  font-size: 40px;
 }
 
 h3 {
-    color: var(--primary--lightest);
-    padding: 12px;
-    
+  color: var(--primary--lightest);
+  padding: 12px;
 }
 
-h3, p {
-    text-align: center;
+h3,
+p {
+  text-align: center;
 }
 
-
-
-input, textarea, select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 label {
-    display: block;
-    margin-bottom: 8px;
-    color: var(--primary--lightest);
+  display: block;
+  margin-bottom: 8px;
+  color: var(--primary--lightest);
 }
 
 nav {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .nav-link {
-    color: var(--white);
-    text-decoration: none;
-    padding: 10px 20px;
+  color: var(--white);
+  text-decoration: none;
+  padding: 10px 20px;
 }
 
 p {
-    color: #7e78aa;
-    padding: 12px;
+  color: #7e78aa;
+  padding: 12px;
 }
 
 .title {
-    background-color: var(--primary--lighter-color);
-    padding: 17px 0;
-    text-align: center;
+  background-color: var(--primary--lighter-color);
+  padding: 17px 0;
+  text-align: center;
 }
-
 
 div.field {
-    margin: 8px;
+  margin: 8px;
 }
-
 
 footer {
-    text-align: center;
-    padding: 20px 0;
-    background-color: var(--black);
-    color: var(--white);
+  text-align: center;
+  padding: 20px 0;
+  background-color: var(--black);
+  color: var(--white);
 }
 
-
 legend {
-    color:var(--primary--lightest);
+  color: var(--primary--lightest);
 }
 
 .first-name::placeholder,
 .Email::placeholder,
-#thoughts::placeholder
- {
-    color: var(--primary--lightest);
+#thoughts::placeholder {
+  color: var(--primary--lightest);
 }
