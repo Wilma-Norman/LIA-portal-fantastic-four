@@ -42,13 +42,13 @@ createFounderProfile();
 
 
  $(".burger").click(() => {
-      $(".main-navigations").toggleClass("active");
+      $(".main-navigations").toggleClass("main-menu-active");
  }) 
 
-// $(".burger").click(() => {
-//     $(".main-navigations").toggle("active");
-//     $(".burger > span").toggleClass('testClass');
-// }) 
+
+$(".Rob").click(() => {
+    $(".bob").toggleClass("sub-menu-active");
+}) 
 
 
 
