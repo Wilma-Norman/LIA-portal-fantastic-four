@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 84.5dvh;
+    height: 90dvh;
     width: 100%;
     background: var(--background-gradient);
 }
