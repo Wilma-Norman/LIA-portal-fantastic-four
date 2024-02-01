@@ -30,8 +30,15 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+.wraper {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px;
+  padding: 16px;
+  background-color: var(--primary-light);
+}
+
 .main-header {
-  padding: 10x;
   margin: 10px;
   color: var(--primary);
 }
@@ -39,7 +46,10 @@ body {
 .main-navigations {
   list-style: none;
   display: flex;
-  margin: 16px;
+}
+
+.main-navigations > li {
+  padding: 16px 0;
 }
 
 .nav-link {
@@ -55,12 +65,10 @@ body {
   text-decoration: underline;
 }
 
-.wraper {
-  display: flex;
-  justify-content: space-between;
-  margin: 0px;
-  padding: 16px;
-  background-color: var(--primary-light);
+.current-page {
+  background: rgb(61,55,107);
+  background: linear-gradient(0deg, rgba(61,55,107,1) 0%, rgba(126,120,170,1) 100%);
+  border-bottom: 2px solid var(--primary);
 }
 
 .sub-menu-wrapper {
@@ -91,6 +99,12 @@ body {
   color: var(--primary);
 }
 
+.sub-menu-link:hover {
+  cursor: pointer;
+  color: var(--white);
+  text-decoration: underline;
+}
+
 .sub-menu-active {
   display: flex;
   flex-direction: column;
@@ -119,9 +133,13 @@ body {
 
   .main-navigations {
     display: none;
-    padding: 20px;       /* notis. kan behövas jobbas på */
+    padding: 20px;    
     border-radius: 0px 0px 10px 10px;
     opacity: 95%;
+  }
+
+  .main-navigations > li {
+    padding: 0px;
   }
 
   .nav-link {
@@ -154,6 +172,13 @@ body {
 
   .sub-menu-active {
 
+  }
+
+  .current-page {
+    border-left: 2px solid var(--primary);
+    border-bottom: none;
+    background: rgb(61,55,107);
+    background: linear-gradient(90deg, rgba(61,55,107,1) 0%, rgba(126,120,170,1) 100%);
   }
 
   .burger {
