@@ -1,10 +1,5 @@
 const mainProfileContent = document.querySelector(".profile-main-content");
 
-//read up on event delegation
-// funk för keypoints på höger
-//  --- letar efter och vad man erbjuder
-//fixa bakgrund till datan
-
 const createProfileElement = (profileId) => {
     if (profileId == '' || profileId === null) {
         $('#project-container').append(` 
