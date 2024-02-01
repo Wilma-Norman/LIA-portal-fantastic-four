@@ -114,6 +114,11 @@ body {
     margin-left: auto;
   }
 
+  .nav-link {
+    padding: 0;
+    margin: 25px;
+  }
+
   
   .burger > span {
     width: 80%;
@@ -123,16 +128,6 @@ body {
   
 
 
-
+}
   
-  /* .burger > .testClass {
-    width: 25px;
-    height: 8px;
- 
-}
 
-.main-navigations {
-  margin: -10px; 
-} */
-
-}
