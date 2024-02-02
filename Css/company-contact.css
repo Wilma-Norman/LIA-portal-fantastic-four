@@ -57,6 +57,7 @@ form {
   color: var(--primary--lightest);
   text-align: center;
   padding: 12px;
+  font-size: 40px;
 }
 
 h3 {
