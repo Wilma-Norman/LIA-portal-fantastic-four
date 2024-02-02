@@ -28,13 +28,13 @@
 .profile-wraper-hero {
     display: flex;
     flex-direction: column;    
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 30%;
     height: 100%;
 }
 
 .profile-image-container {    
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 100%;
     height: 50%;
     display: flex;
@@ -51,17 +51,16 @@
 .profile-contact-container {
     display: flex;
     flex-direction: column;    
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 100%;
     height: 50%;
-    justify-content: space-between;
 
 }
 
 .info {
     width: 100%;
     height: 30%;
-    border: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
 p {
@@ -72,18 +71,99 @@ p {
 .profile-wraper-text {
     display: flex;
     flex-direction: column;    
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 70%;
     height: 100%;
 }
 
 .profile-tagline {    
-    border: 1px solid black;
+    border-bottom: 1px solid black;
     flex: 1.5;
 }
 
 .profile-background {    
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    flex: 7;
+}
+.main-wraper {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-wraper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 70vw;
+    height: 70vh;
+    justify-content: space-evenly;
+}
+
+.card-profiles {    
+    display: flex;
+    background-color: var(--off-white);
+    width: 45%;
+    height: 33vh;
+    margin: -6px;
+    border-radius: 10px;
+    padding: 6px;
+}
+
+
+
+.profile-wraper-hero {
+    display: flex;
+    flex-direction: column;    
+    width: 30%;
+    height: 100%;
+}
+
+.profile-image-container {    
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.profile-image-container > img {
+    width: 90%;
+    height: 90%;
+}
+
+
+.profile-contact-container {
+    display: flex;
+    flex-direction: column;    
+    width: 100%;
+    height: 50%;
+
+}
+
+.info {
+    width: 100%;
+    height: 30%;
+}
+
+p {
+    padding: 2px;
+}
+
+
+.profile-wraper-text {
+    display: flex;
+    flex-direction: column;    
+    width: 70%;
+    height: 100%;
+}
+
+.profile-tagline {    
+    flex: 1.5;
+}
+
+.profile-background {    
     flex: 7;
 }
 
@@ -99,17 +179,21 @@ p {
     }
     
     .card-profiles {
-        width: 70%;
+        width: 95%;
         height: 50%;
-        padding: 10px;
+        padding: 12px;
         margin: 12px;
+        object-fit:contain;
     }
     
     .profile-wraper-text {
         height: auto; 
-        
     }
+
+    .profile-image-container > img {
+        width: 100%;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+    }
+
 }
-
-
-
