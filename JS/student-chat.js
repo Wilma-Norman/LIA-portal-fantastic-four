@@ -16,7 +16,7 @@ const choseActiveStudent = document.querySelector(".chose-active-student");
 //variables
 let updateData;
 
-/* Hamburder menu START */
+/* Hamburder menu  */
 function toggleModal() {
   var modal = document.getElementById("myModal");
   //   modal.style.display = modal.style.display === "none" ? "block" : "none";
@@ -28,7 +28,6 @@ modalIcon.addEventListener("click", toggleModal);
 function toggleMenu() {
   modalIcon.classList.toggle("menu-open");
 }
-/* Hamburder menu END */
 
 /**
  * LocalStorage add and get functions

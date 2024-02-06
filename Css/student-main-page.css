@@ -276,7 +276,7 @@ body {
   color: #fff;
 }
 .internship-large-card .company-info {
-  height: 270px;
+  height: 290px;
   background-color: var(--primary-light);
   color: white;
   padding: 16px;
@@ -324,7 +324,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 10px 10px 0 0;
+    border-radius: 10px;
+    margin-bottom: 12px;
     background-color: var(--primary-light);
     font-size: 1.5rem;
     cursor: pointer;
@@ -352,7 +353,7 @@ body {
   .student-main-content {
     width: 100%;
     margin-left: 0;
-    border-radius: 0 0 12px 12px;
+    border-radius: 10px;
   }
   .added-d-none {
     display: none;
@@ -364,6 +365,34 @@ body {
   }
   .clearFilters {
     margin-top: 60px;
+  }
+  .internship-large-card {
+    height: 90vh;
+    overflow-y: scroll;
+  }
+  .internship-large-card .card-img {
+    margin-top: 30px;
+    width: 300px;
+  }
+  .internship-large-card .card-body {
+    flex-direction: column;
+    align-items: center;
+    .left-content,
+    .right-content {
+      width: 95%;
+    }
+    .left-content {
+      margin-bottom: 16px;
+      margin-right: 0;
+    }
+  }
+  .internship-large-card {
+    h4 {
+      font-size: 1.5rem;
+    }
+  }
+  .requirements {
+    width: 95%;
   }
 }
 @media screen and (max-width: 486px) {
